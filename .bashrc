@@ -8,6 +8,29 @@ alias minicom='picocom'
 alias ter='gnome-terminal . &'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 
+alias install='sudo apt-get install'
+
+export PAGER="/usr/bin/most -s" #colorful manpages
+export GREP_OPTIONS='--color=auto'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+
+#history
+export HISTFILESIZE=20000
+export HISTSIZE=10000
+shopt -s histappend
+# Combine multiline commands into one in history
+shopt -s cmdhist
+# Ignore duplicates, ls without options and builtin commands
+HISTCONTROL=ignoredups
+export HISTIGNORE="&:ls:[bf]g:exit"
+
+
+
 #TOOLS
 export PATH=$PATH:/matlab/bin/
 export PATH=$PATH:/home/tsotne/Programs/idea-IC-143.1184.17/bin
