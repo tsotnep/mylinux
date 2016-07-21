@@ -1,3 +1,12 @@
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable folding lines according to indent, 
+" za -to toggle, zo -to open, zc -to close fold
+" http://vim.wikia.com/wiki/Folding
+""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=indent
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vundler for plugin management
 """"""""""""""""""""""""""""""""""""""""""""""""
