@@ -114,6 +114,12 @@ set smarttab
 set shiftwidth=4
 set softtabstop=2
 
+" show existing tab with 4 spaces width
+set tabstop=4
+
+" On pressing tab, insert 4 spaces
+set expandtab
+
 set ai " Auto indent
 set si " Smart indent
 

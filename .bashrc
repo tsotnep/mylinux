@@ -1,9 +1,21 @@
 #other
+alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
+alias lastchanges='find $HOME -cmin 0.25'
+alias rreswifi='sudo service network-manager restart'
+alias rres='sudo shutdown -r now'
+#TODO: give argument to countfiles, to take folder and count inside
+alias countfilesrec='find . -type f | wc -l'
+alias countfiles='find . -maxdepth 1 -type f | wc -l'
+alias reload='exec bash'
+alias shell='ps -p $$'
+alias mac='/sbin/ifconfig'
+alias xclip='\xclip -selection c'
 alias ccat='pygmentize -g'
 alias bashrc='ccat ~/.bashrc'
 alias bashrce='vim ~/.bashrc'
 alias rm=trash
 alias spwd="PS1='[\u@\h \W]\$ '"
+alias spwd1="PS1='[\W]\$ '"
 alias minicom='picocom'
 alias ter='gnome-terminal . &'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
@@ -13,11 +25,12 @@ alias install='sudo apt-get install'
 export PAGER="/usr/bin/most -s" #colorful manpages
 export GREP_OPTIONS='--color=auto'
 
+alias ll="ls -l"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-
+alias et='cd ~/git/ETSE_GDSP/src/'
 
 #history
 export HISTFILESIZE=20000
@@ -39,8 +52,15 @@ export PATH=$PATH:/home/tsotne/Programs/cpp
 export PATH=$PATH:/home/tsotne/Programs/sigasi
 
 #ssh
-alias sshttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
-alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
+#alias sshttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
+#alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
+alias sshstr='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
+alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
+
+
+#alias sshstr='ssh -Y -C tsotne@strudel.pld.ttu.ee'
+#alias sshpitsa='ssh -Y -C tsotne@pitsa.pld.ttu.ee'
+
 
 #git
 alias add='git add'
