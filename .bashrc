@@ -1,4 +1,6 @@
 #other
+alias c='cd'
+alias gt='cd ~/git'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
 alias lastchanges='find $HOME -cmin 0.25'
 alias rreswifi='sudo service network-manager restart'
