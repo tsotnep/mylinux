@@ -1,8 +1,10 @@
 #other
+ter() {  gnome-terminal -e "bash -c \"$1; exec bash\""; }
+
 alias c='cd'
 alias gt='cd ~/git'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
-alias lastchanges='find $HOME -cmin 0.25'
+alias lastchanges='find $HOME -cmin 0.1'
 alias rreswifi='sudo service network-manager restart'
 alias rres='sudo shutdown -r now'
 #TODO: give argument to countfiles, to take folder and count inside
@@ -20,8 +22,9 @@ alias bashrce='vim ~/.bashrc'
 alias rm=trash
 alias spwd="PS1='[\u@\h \W]\$ '"
 alias spwd1="PS1='[\W]\$ '"
+alias picocom='sudo \picocom -b 115200 /dev/ttyACM0'
 alias minicom='picocom'
-alias ter='gnome-terminal . &'
+#alias ter='gnome-terminal . &'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 
 alias install='sudo apt-get install'
@@ -75,6 +78,7 @@ alias push='git push'
 alias pull='git pull'
 alias log='git log'
 alias status='git status'
+alias st='git status'
 alias sshadd='ssh-add ~/git/ssh/mykey'
 alias amend='git commit --amend'
 alias checkout='git checkout'

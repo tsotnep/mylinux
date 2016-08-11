@@ -120,8 +120,8 @@ set tabstop=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-set ai " Auto indent
-set si " Smart indent
+"set ai " Auto indent
+"set si " Smart indent
 
 " modern backspace behavior
 set backspace=indent,eol,start

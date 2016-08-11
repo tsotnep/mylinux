@@ -1,21 +1,38 @@
 CHROME:
-    ctrl+shift+S - save in google saves
-    ctrl+shift+G - google +1 the page
-    ctrl+shift+C - switchmark, change tab
-    alt+shift+X - tab to window
-    alt+shift+Z - undo
-    alt+shift+C - tab to popup
-    ctrl+shift+F - highlight selected
-    ctrl+shift+Z - undo highlighed
-    ctrl+shift+L - lightshot screenshot
+    Custom:
+        ctrl+shift+S  - save in google saves
+        ctrl+shift+F  - google +1 the page
+        
+        ctrl+shift+C  - switchmark, change tab
+        
+        alt+shift+X   - tab to window
+        alt+shift+Z   - undo
+        alt+shift+C   - tab to popup
+        
+        ctrl+shift+R  - highlight selected with Red
+        ctrl+shift+G  - highlight selected with Green
+        ctrl+shift+Z  - undo highlighed
+        
+        ctrl+shift+L  - lightshot screenshot
     
+    Default:
+        ctrl+page up/down         - change tab
+        ctrl+shift+page up/down   - move tab
 
 LINUX:Custom
-    ctrl+shift+i - open chrome
-    ctrl+shift+k - open calculator
-    ctrl+shift+a - open atom
-    ctrl+alt+del - open task manager
-    print - shutter active win
-    shift+print - shutter full screen
-    ctrl+print - shutter selected screen
-    right ctrl - change keyboard layout
+    ctrl+shift+i  - open chrome
+    ctrl+shift+k  - open calculator
+    ctrl+shift+a  - open atom
+    ctrl+alt+del  - open task manager
+
+    print         - shutter active win
+    shift+print   - shutter full screen
+    ctrl+print    - shutter selected screen
+
+    right ctrl    - change keyboard layout
+
+
+tmux:
+    ctrl+A, [, ctrl+space,  <select text>, alt+w  - copy text
+    ctrl+A, ]                                     - paste text
+    ctrl+A, z   - full screen signle pane
