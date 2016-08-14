@@ -29,7 +29,7 @@ LINUX:Custom
     shift+print   - shutter full screen
     ctrl+print    - shutter selected screen
 
-    right ctrl    - change keyboard layout
+    right (ctrl+shift)  - change keyboard layout
 
 
 tmux:
