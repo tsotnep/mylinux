@@ -7,7 +7,7 @@ ter() {  gnome-terminal -e "bash -c \"$1; exec bash\""; }
 alias c='cd'
 alias gt='cd ~/git'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
-alias lastchanges='find $HOME -cmin 0.1'
+alias lastchanges='sudo find $HOME -cmin 0.1'
 alias rreswifi='sudo service network-manager restart'
 alias rres='sudo shutdown -r now'
 #TODO: give argument to countfiles, to take folder and count inside
