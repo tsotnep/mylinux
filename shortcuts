@@ -37,6 +37,6 @@ tmux:
     ctrl+A, ]                                     - paste text
     ctrl+A, z   - full screen signle pane
     alt+(arrows) OR left mouse btn    - swith into panes
-    cltr+|      - divide current pane vertically
-    ctrl+-      - divide current pane horisontally
-    ctrl+x, y   - close current pane
+    cltr+A, |     - divide current pane vertically
+    ctrl+A, -     - divide current pane horisontally
+    ctrl+A, x, y     - close current pane

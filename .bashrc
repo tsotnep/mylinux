@@ -1,6 +1,9 @@
 #other
-ter() {  gnome-terminal -e "bash -c \"$1; exec bash\""; }
 
+#copycom() { cat `readlink -f $1` | ssh root@45.55.155.46 "cat >> $2"; } #copy content of $1 into the file $2
+copycom() { cat $1 | ssh root@45.55.155.46 "cat >> $2"; } #copy content of $1 into the file $2
+fp() { readlink -f $1; }
+ter() {  gnome-terminal -e "bash -c \"$1; exec bash\""; }
 alias c='cd'
 alias gt='cd ~/git'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
@@ -63,16 +66,18 @@ export PATH=$PATH:/home/tsotne/Programs/sigasi
 #alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
 alias sshstr='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
 alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
-
+alias sshcom='ssh tsotne@45.55.155.46'
 
 #alias sshstr='ssh -Y -C tsotne@strudel.pld.ttu.ee'
 #alias sshpitsa='ssh -Y -C tsotne@pitsa.pld.ttu.ee'
 
 
 #git
-alias add='git add'
-alias adda='git add ./ --all'
 alias commit='git commit -m'
+alias uncommit='git reset HEAD^' #undo the act of committing and everything you'd staged, but leave the work tree (your files) intact
+alias uncommits='git reset --soft HEAD^' #undo the act of committing, leaving everything else intact
+alias uncommith='git reset --hard HEAD^' #throwing away all uncommitted changes, resetting everything to the previous commit
+alias undouncommith='git reset HEAD@{1}'
 alias cm='git commit -m"not important update of the code, moved a file, changed variable name, formatted the code or something simillar, no need for special message"'
 alias push='git push'
 alias pull='git pull'
@@ -82,6 +87,12 @@ alias st='git status'
 alias sshadd='ssh-add ~/git/ssh/mykey'
 alias amend='git commit --amend'
 alias checkout='git checkout'
+alias adda='git add ./ --all'
+alias add='git add'
+unadd() { git reset $1; } #remove added file while commiting
+alias branch='git branch -v'
+untrack() { git rm --cached $1; } #untrack already tracked file
+
 
 #c++
 alias g++='\g++ -std=c++11 -g'
