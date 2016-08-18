@@ -30,9 +30,13 @@ LINUX:Custom
     ctrl+print    - shutter selected screen
 
     right (ctrl+shift)  - change keyboard layout
-
+    alt + ~             - full screen window
 
 tmux:
     ctrl+A, [, ctrl+space,  <select text>, alt+w  - copy text
     ctrl+A, ]                                     - paste text
     ctrl+A, z   - full screen signle pane
+    alt+(arrows) OR left mouse btn    - swith into panes
+    cltr+|      - divide current pane vertically
+    ctrl+-      - divide current pane horisontally
+    ctrl+x, y   - close current pane
