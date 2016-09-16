@@ -1,15 +1,19 @@
 #other
 
+alias itmux='tmux source-file t_intern'
 #copycom() { cat `readlink -f $1` | ssh root@45.55.155.46 "cat >> $2"; } #copy content of $1 into the file $2
 copycom() { cat $1 | ssh root@45.55.155.46 "cat >> $2"; } #copy content of $1 into the file $2
 fp() { readlink -f $1; }
+# fpx() { readlink -f $1 | xclip; } #TODO
 ter() {  gnome-terminal -e "bash -c \"$1; exec bash\""; }
 alias c='cd'
 alias gt='cd ~/git'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
 alias lastchanges='sudo find $HOME -cmin 0.1'
-alias rreswifi='sudo service network-manager restart'
+#alias rreswifi='sudo service network-manager restart && sudo /etc/init.d/networking restart'
+alias rreswifi='sudo rmmod ath9k && sudo modprobe ath9k'
 alias rres='sudo shutdown -r now'
+alias shtdwn='sudo shutdown -H now'
 #TODO: give argument to countfiles, to take folder and count inside
 alias countfilesrec='find . -type f | wc -l'
 alias countfiles='find . -maxdepth 1 -type f | wc -l'
@@ -25,16 +29,28 @@ alias bashrce='vim ~/.bashrc'
 alias rm=trash
 alias spwd="PS1='[\u@\h \W]\$ '"
 alias spwd1="PS1='[\W]\$ '"
-alias picocom='sudo \picocom -b 115200 /dev/ttyACM0'
+alias spwd2="PROMPT_DIRTRIM=1"
+#alias picocom='sudo \picocom -e x -b 115200 /dev/ttyACM0'
+alias picocom="\script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/Documents/logs/picocom/log_$(date '+%d_%m_%Y_%H_%M_%S')"
+
+lscript() { script -f -c '$0' $2; }
+
 alias minicom='picocom'
 #alias ter='gnome-terminal . &'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
+exists() { 
+    if [ ! -f $1 ]; then
+        echo "File not found!"
+    else
+        echo "File exists!"
+    fi
+}
 
 alias install='sudo apt-get install'
 
 export PAGER="/usr/bin/most -s" #colorful manpages
 export GREP_OPTIONS='--color=auto'
-
+alias lvim='vim -c "normal '\''0"'  #open last vim
 alias ll="ls -l"
 alias ..="cd .."
 alias ...="cd ../.."
@@ -53,20 +69,14 @@ HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit"
 
 
-
-#TOOLS
-export PATH=$PATH:/matlab/bin/
-export PATH=$PATH:/home/tsotne/Programs/idea-IC-143.1184.17/bin
-export PATH=$PATH:/home/tsotne/Programs/java
-export PATH=$PATH:/home/tsotne/Programs/cpp
-export PATH=$PATH:/home/tsotne/Programs/sigasi
-
 #ssh
 #alias sshttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
 #alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
 alias sshstr='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
 alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
-alias sshcom='ssh tsotne@45.55.155.46'
+alias sshcomr='ssh root@162.243.43.46'
+alias sshcomn='ssh tsotnep@162.243.43.46'
+alias sshcom='ssh www-tsotnep@162.243.43.46'
 
 #alias sshstr='ssh -Y -C tsotne@strudel.pld.ttu.ee'
 #alias sshpitsa='ssh -Y -C tsotne@pitsa.pld.ttu.ee'
@@ -99,9 +109,18 @@ alias g++='\g++ -std=c++11 -g'
 alias make='clear && make'
 export fl='-pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wmissing-declarations -Wmissing-include-dirs -Wnoexcept -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel -Wstrict-overflow=5 -Wswitch-default -Wundef -Wno-unused'
 
+#TOOLS
+export PATH=$PATH:/matlab/bin/
+export PATH=$PATH:/home/tsotne/Programs/idea-IC-143.1184.17/bin
+export PATH=$PATH:/home/tsotne/Programs/java
+export PATH=$PATH:/home/tsotne/Programs/cpp
+export PATH=$PATH:/home/tsotne/Programs/sigasi
+
+
 #VIVADO
 alias svivadobin='source /opt/Xilinx/SDK/2015.2/settings64.sh'
 alias svivadolic='export XILINXD_LICENSE_FILE=/opt/Xilinx/licences/vivado_system_edition.lic'
+alias svivadolic1='export XILINXD_LICENSE_FILE=/opt/Xilinx/licences/crack_licence.lic'
 alias svivadolic2='export XILINXD_LICENSE_FILE=1700@kama.pld.ttu.ee'
 alias svivado='svivadobin && svivadolic'
 alias vivado='\vivado -nolog -nojournal'

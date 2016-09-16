@@ -1,10 +1,18 @@
+"start where stopped
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Enable folding lines according to indent, 
 " za -to toggle, zo -to open, zc -to close fold
 " http://vim.wikia.com/wiki/Folding
 """"""""""""""""""""""""""""""""""""""""""""""""
-set foldmethod=indent
+"set foldmethod=indent
+set foldmethod=syntax
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""

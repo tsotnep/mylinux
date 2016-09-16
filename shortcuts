@@ -40,4 +40,9 @@ tmux:
     ctrl+A, alt+(arrows) OR left mouse btn    - resize panes
     cltr+A, |     - divide current pane vertically
     ctrl+A, -     - divide current pane horisontally
-    ctrl+A, x, y     - close current pane
+    ctrl+A, x, y  - close current pane
+    ctrl+A, o     - rotate panes
+    ctrl+A, { OR }- swap current pane with previous or next pane
+
+VIM:
+    z+a   - fold-unfold
