@@ -12,7 +12,7 @@ endif
 " http://vim.wikia.com/wiki/Folding
 """"""""""""""""""""""""""""""""""""""""""""""""
 "set foldmethod=indent
-set foldmethod=syntax
+"set foldmethod=syntax
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -70,7 +70,7 @@ set ruler	" always show current position
 
 " Line wrap (number of cols)
 set wrap	    " wrap lines only visually
-set linebreak	    " wrap only at valid characters
+" set linebreak	    " wrap only at valid characters
 set textwidth=0	    " prevent vim from inserting linebreaks
 set wrapmargin=0    "   in newly entered text
 

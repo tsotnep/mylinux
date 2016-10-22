@@ -33,8 +33,7 @@ LINUX:Custom
     alt + ~             - full screen window
 
 tmux:
-    ctrl+A, [, ctrl+space,  <select text>, alt+w  - copy text
-    ctrl+A, ]                                     - paste text
+    prefix, space, <select text>, y       -copy text into clipboard    
     ctrl+A, z   - full screen signle pane
     alt+(arrows) OR left mouse btn            - swith into panes
     ctrl+A, alt+(arrows) OR left mouse btn    - resize panes
@@ -43,6 +42,14 @@ tmux:
     ctrl+A, x, y  - close current pane
     ctrl+A, o     - rotate panes
     ctrl+A, { OR }- swap current pane with previous or next pane
+    prefix + /    - regex search
+    prefix + y    - copy text selected with regex search
+    prefix + o    - open file/link/folder selected with regex search
+    prefix + Tab  - toggle directory tree
+    prefix, ctrl+s/r - save/restore session
 
+#ctrl+A, [, ctrl+space,  <select text>, alt+w  - copy text EMACS MODE
+#ctrl+A, ]                                     - paste text EMACS MODE
+ 
 VIM:
     z+a   - fold-unfold
