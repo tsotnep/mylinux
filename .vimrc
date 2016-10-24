@@ -7,7 +7,7 @@ endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" Enable folding lines according to indent, 
+" Enable folding lines according to indent,
 " za -to toggle, zo -to open, zc -to close fold
 " http://vim.wikia.com/wiki/Folding
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -51,6 +51,7 @@ let g:ctrlp_cmd = 'CtrlP'
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Automatically update a file if it is changed externally
 set autoread
+
 
 " Height of the command bar
 set cmdheight=2
@@ -139,7 +140,7 @@ filetype indent on	" enable filetype specific indentation
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Movement
 """""""""""""""""""""""""""""""""""""""""""""""""
-" move vertically by visual line (don't skip wrapped lines) 
+" move vertically by visual line (don't skip wrapped lines)
 nnoremap j gj
 nnoremap k gk
 
@@ -150,4 +151,3 @@ nnoremap k gk
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'ra'
-
