@@ -63,7 +63,7 @@ set incsearch	    " search while characters are entered
 set ignorecase
 
 " Show linenumbers
-set number
+"set number
 
 set showcmd	" show last command in the bottom right
 
