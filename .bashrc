@@ -32,12 +32,12 @@ nc='\e[0m'
 
 
 #PC Specific
-alias vpnati='openvpn --config /home/tsotne/Documents/openvpn/client.ovpn'
-alias shortcuts='ccat ~/git/mylinux/shortcuts'
-alias shortcutse='vim ~/git/mylinux/shortcuts'
-alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/git/mylinux/keyboardshortcuts'
+alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
+alias shortcuts='ccat ~/ws/git/mylinux/shortcuts'
+alias shortcutse='vim ~/ws/git/mylinux/shortcuts'
+alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ws/git/mylinux/keyboardshortcuts'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
-alias sshadd='ssh-add ~/git/ssh/mykey'
+alias sshadd='ssh-add ~/ws/git/ssh/mykey'
 
 
 #SHORTCUTS
@@ -113,7 +113,7 @@ alias info_Storage='pydf'
 ###############################################################################SCRIPTS
 countfilesrec() { find $1 -type f | wc -l; }
 countfiles() { find $1 -type f -maxdepth 1 | wc -l; }
-picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/Documents/logs/picocom/log_"$d"_"'$*'"; IFS=$old; }
+picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ws/logs/picocom/log_"$d"_"'$*'"; IFS=$old; }
 exists() {
     if [ ! -f $1 ]; then
         echo "File not found!"
