@@ -1,5 +1,4 @@
-####################################################################################
-######################################### BASH CONFIG
+######################################### B A S H  C O N F I G
 export PAGER="/usr/bin/most -s" #colorful manpages
 export GREP_OPTIONS='--color=auto'
 #history
@@ -28,16 +27,6 @@ lightpurple='\e[1;35m'
 yellow='\e[1;33m'
 white='\e[1;37m'
 nc='\e[0m'
-
-
-
-#PC Specific
-alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
-alias shortcuts='ccat ~/ws/git/mylinux/shortcuts'
-alias shortcutse='vim ~/ws/git/mylinux/shortcuts'
-alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ws/git/mylinux/keyboardshortcuts'
-alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
-alias sshadd='ssh-add ~/ws/git/ssh/mykey'
 
 
 #SHORTCUTS
@@ -102,15 +91,55 @@ alias ln='ln -i'
 
 
 
-################################################################################INFO
+################################################################################# O t h e r 
+alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
+alias shortcuts='ccat ~/ws/git/mylinux/shortcuts'
+alias shortcutse='vim ~/ws/git/mylinux/shortcuts'
+alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ws/git/mylinux/keyboardshortcuts'
+alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
+alias sshadd='ssh-add ~/ws/git/ssh/mykey'
+
+
+
+################################################################################ I N F O
 alias info_IPMAC='ifconfig'
 alias info_Shell='ps -p $$'
 alias info_Linux='cat /etc/*-release'
 alias info_PC='inxi -Fx'
 alias info_Storage='pydf'
 
+######################################### S S H
+#alias sshttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
+#alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
+alias sshstr='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
+alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
+alias sshcomr='ssh root@162.243.43.46'
+alias sshcomn='ssh tsotnep@162.243.43.46'
+alias sshcom='ssh www-tsotnep@162.243.43.46'
 
-###############################################################################SCRIPTS
+
+######################################### G I T
+alias commit='git commit -m'
+alias uncommit='git reset HEAD^' #undo the act of committing and everything you'd staged, but leave the work tree (your files) intact
+alias uncommits='git reset --soft HEAD^' #undo the act of committing, leaving everything else intact
+alias uncommith='git reset --hard HEAD^' #throwing away all uncommitted changes, resetting everything to the previous commit
+alias undouncommith='git reset HEAD@{1}'
+alias cm='git commit -m"either: moved a file, changed variable name, formatted the code or something simillar, no need for special message"'
+alias push='git push'
+alias pull='git pull'
+alias log='git log'
+alias status='git status'
+alias st='git status'
+alias amend='git commit --amend'
+alias checkout='git checkout'
+alias adda='git add ./ --all'
+alias add='git add'
+unadd() { git reset $1; } #remove added file while commiting
+alias branch='git branch -v'
+untrack() { git rm --cached $1; } #untrack already tracked file
+
+
+############################################################################### S C R I P T S
 countfilesrec() { find $1 -type f | wc -l; }
 countfiles() { find $1 -type f -maxdepth 1 | wc -l; }
 picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ws/logs/picocom/log_"$d"_"'$*'"; IFS=$old; }
@@ -147,38 +176,6 @@ fi
 
 
 
-
-####################################################################################
-######################################### S S H
-#alias sshttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
-#alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
-alias sshstr='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
-alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
-alias sshcomr='ssh root@162.243.43.46'
-alias sshcomn='ssh tsotnep@162.243.43.46'
-alias sshcom='ssh www-tsotnep@162.243.43.46'
-
-
-####################################################################################
-######################################### G I T
-alias commit='git commit -m'
-alias uncommit='git reset HEAD^' #undo the act of committing and everything you'd staged, but leave the work tree (your files) intact
-alias uncommits='git reset --soft HEAD^' #undo the act of committing, leaving everything else intact
-alias uncommith='git reset --hard HEAD^' #throwing away all uncommitted changes, resetting everything to the previous commit
-alias undouncommith='git reset HEAD@{1}'
-alias cm='git commit -m"either: moved a file, changed variable name, formatted the code or something simillar, no need for special message"'
-alias push='git push'
-alias pull='git pull'
-alias log='git log'
-alias status='git status'
-alias st='git status'
-alias amend='git commit --amend'
-alias checkout='git checkout'
-alias adda='git add ./ --all'
-alias add='git add'
-unadd() { git reset $1; } #remove added file while commiting
-alias branch='git branch -v'
-untrack() { git rm --cached $1; } #untrack already tracked file
 
 
 
