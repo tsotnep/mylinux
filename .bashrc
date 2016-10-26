@@ -29,7 +29,9 @@ white='\e[1;37m'
 nc='\e[0m'
 
 
-#SHORTCUTS
+####################################### S H O R T C U T S
+
+alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias ccopyprev='echo !! | xclip'
 alias rreswifi='sudo service network-manager restart'
 alias rrescinammon='sudo killall -HUP cinnamon'
@@ -90,14 +92,17 @@ alias ln='ln -i'
 
 
 
-
-################################################################################# O t h e r 
+################################################################################ MY-PC specific
 alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
 alias shortcuts='ccat ~/ws/git/mylinux/shortcuts'
 alias shortcutse='vim ~/ws/git/mylinux/shortcuts'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ws/git/mylinux/keyboardshortcuts'
-alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias sshadd='ssh-add ~/ws/git/ssh/mykey'
+alias mylinux='cd ~/ws/git/mylinux/'
+
+
+
+
 
 
 
@@ -142,7 +147,7 @@ untrack() { git rm --cached $1; } #untrack already tracked file
 ############################################################################### S C R I P T S
 countfilesrec() { find $1 -type f | wc -l; }
 countfiles() { find $1 -type f -maxdepth 1 | wc -l; }
-picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ws/logs/picocom/log_"$d"_"'$*'"; IFS=$old; }
+picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; mkdir ~/ws/logs/picocom/ script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ws/logs/picocom/log_"$d"_"'$*'"; IFS=$old; }
 exists() {
     if [ ! -f $1 ]; then
         echo "File not found!"
