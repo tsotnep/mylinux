@@ -182,8 +182,15 @@ mkdirc() {
     cd $1;
 }
 
+mylinux_push() {
+    cd ~/ws/git/mylinux;
+    adda;
+    commit "msg: $1";
+    push;
+}
 
-
-
+mylinux_update_installed() {
+    comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ws/git/mylinux/packages_full;
+}
 
 
