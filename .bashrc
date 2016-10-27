@@ -98,6 +98,9 @@ alias shortcutse='vim ~/ws/git/mylinux/shortcuts'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ws/git/mylinux/keyboardshortcuts'
 alias sshadd='ssh-add ~/ws/git/ssh/mykey'
 alias mylinux='cd ~/ws/git/mylinux/'
+alias ws='cd ~/ws/'
+alias gt='cd ~/ws/git'
+alias wss='cd ~/ws/workspace'
 
 
 
@@ -184,6 +187,7 @@ mkdirc() {
 
 mylinux_push() {
     cd ~/ws/git/mylinux;
+    sshadd;
     adda;
     commit "msg: $1";
     push;
