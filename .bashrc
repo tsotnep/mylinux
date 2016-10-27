@@ -67,7 +67,6 @@ alias lastchanges='sudo find $HOME -cmin 0.1'
 alias mkdir='mkdir -p -v'
 alias cad='tcsh'
 
-alias install='sudo apt-get install'
 alias apt-get='sudo apt-get'
 alias apt-cache='sudo apt-cache'
 alias apti='apt-get install'
@@ -178,7 +177,10 @@ else
     echo "'$1' is not a file."
 fi
 }
-
+mkdirc() {
+    mkdir $1;
+    cd $1;
+}
 
 
 
