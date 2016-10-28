@@ -194,6 +194,12 @@ mylinux_push() {
     push;
 }
 
+mylinux_pull() {
+    cd ~/ws/git/mylinux;
+    pull;
+}
+
+
 mylinux_update_installed() {
     comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ws/git/mylinux/packages_full;
 }
