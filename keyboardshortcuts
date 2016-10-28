@@ -95,6 +95,11 @@ binding=['Print']
 command="shutter -a -o '/home/tsotne/Pictures/screenshot/%y-%m-%d_%T_$name.png'"
 name='shutter active window'
 
+[desktop/keybindings/custom-keybindings/custom0]
+binding=['<Primary><Shift>a']
+command='atom'
+name='open atom'
+
 [desktop/keybindings/custom-keybindings/custom3]
 binding=['<Primary><Alt>Delete']
 command='gnome-system-monitor'
@@ -102,7 +107,7 @@ name='system monitor / task manager'
 
 [desktop/keybindings]
 looking-glass-keybinding=['<Primary><Super>l']
-custom-list=['custom1', 'custom2', 'custom3', 'custom4', 'custom5', 'custom6']
+custom-list=['custom1', 'custom2', 'custom3', 'custom4', 'custom5', 'custom6', 'custom0']
 
 [desktop/keybindings/media-keys]
 screenshot-clip=@as []
