@@ -2,7 +2,7 @@
 desktop-effects-unmaximize-transition='easeNone'
 desktop-effects-maximize-transition='easeInExpo'
 desktop-effects-map-effect='traditional'
-command-history=['ls', 'chrom', 'gnome-calculator', 'chrome', "google-'chrome", 'google-chrome', 'XMind ', 'redshift-gtk', 'gparted', 'calc', 'killall gnome-terminal', 'display', 'shutdown -r now', 'sudo shutdown -r now', 'nemo', 'transmission', 'vivado', 'gmake', 'subl', 'killall atom', 'sudo gparted', 'codeblocks ', 'transmission-gtk ', 'redshift-gtk ', './git/linux-driver-dev-mem/', './git/linux-scripts/screen-resolution-change.sh ', 'shutter', 'shutter ', 'atom -n', 'ატომ', 'gedit', 'glipper ', 'sigasi', 'gnome-terminal', 'atom git/ETSE_GDSP/', 'atom ', 'atom workspaceXps/pcores/MyProcessorIPLib/pcores/', 'atom git/hackerrank/', 'atom .', 'atom', 'guake', 'gimp']
+command-history=['ls', 'chrom', 'gnome-calculator', 'chrome', "google-'chrome", 'google-chrome', 'XMind ', 'redshift-gtk', 'gparted', 'calc', 'killall gnome-terminal', 'display', 'shutdown -r now', 'sudo shutdown -r now', 'nemo', 'transmission', 'vivado', 'gmake', 'subl', 'killall atom', 'sudo gparted', 'codeblocks ', 'transmission-gtk ', 'redshift-gtk ', './git/linux-driver-dev-mem/', './git/linux-scripts/screen-resolution-change.sh ', 'shutter', 'shutter ', 'atom -n', 'ატომ', 'glipper ', 'sigasi', 'gnome-terminal', 'atom git/ETSE_GDSP/', 'atom ', 'atom workspaceXps/pcores/MyProcessorIPLib/pcores/', 'atom git/hackerrank/', 'atom .', 'atom', 'guake', 'gimp', 'rres', 'redshift ', 'redshift', 'gedit']
 desktop-effects-close-effect='traditional'
 desktop-effects-style='cinnamon'
 enabled-desklets=@as []
@@ -14,7 +14,7 @@ alttab-switcher-style='thumbnails'
 workspace-osd-visible=true
 workspace-expo-view-as-grid=true
 panels-height=['1:25', '2:25', '3:25']
-next-applet-id=32
+next-applet-id=33
 panel-launchers=['DEPRECATED']
 desktop-effects-map-transition='easeOutQuad'
 desklet-decorations=1
@@ -25,7 +25,7 @@ overview-corner=['expo:false:false', 'scale:false:false', 'scale:false:false', '
 desktop-effects-tile-transition='easeInQuad'
 desktop-effects-maximize-effect='none'
 panels-resizable=['1:false', '2:false', '3:false']
-enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:show-desktop@cinnamon.org:1', 'panel1:left:2:panel-launchers@cinnamon.org:2', 'panel1:left:3:window-list@cinnamon.org:3', 'panel1:right:0:notifications@cinnamon.org:4', 'panel1:right:0:recent@cinnamon.org:29', 'panel1:right:0:trash@cinnamon.org:30', 'panel1:right:1:user@cinnamon.org:5', 'panel1:right:3:removable-drives@cinnamon.org:6', 'panel1:right:4:keyboard@cinnamon.org:7', 'panel1:right:5:bluetooth@cinnamon.org:8', 'panel1:right:6:network@cinnamon.org:9', 'panel1:right:7:sound@cinnamon.org:10', 'panel1:right:8:power@cinnamon.org:11', 'panel1:right:9:windows-quick-list@cinnamon.org:14', 'panel1:right:10:systray@cinnamon.org:12', 'panel1:right:11:calendar@cinnamon.org:13', 'panel3:left:0:window-list@cinnamon.org:27', 'panel3:right:0:windows-quick-list@cinnamon.org:28', 'panel3:right:0:calendar@cinnamon.org:31']
+enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:show-desktop@cinnamon.org:1', 'panel1:left:2:panel-launchers@cinnamon.org:2', 'panel1:left:3:window-list@cinnamon.org:3', 'panel1:right:0:notifications@cinnamon.org:4', 'panel1:right:0:recent@cinnamon.org:29', 'panel1:right:0:trash@cinnamon.org:30', 'panel1:right:1:user@cinnamon.org:5', 'panel1:right:3:removable-drives@cinnamon.org:6', 'panel1:right:4:keyboard@cinnamon.org:7', 'panel1:right:5:bluetooth@cinnamon.org:8', 'panel1:right:6:network@cinnamon.org:9', 'panel1:right:7:sound@cinnamon.org:10', 'panel1:right:8:power@cinnamon.org:11', 'panel1:right:9:windows-quick-list@cinnamon.org:14', 'panel1:right:11:calendar@cinnamon.org:13', 'panel3:left:0:window-list@cinnamon.org:27', 'panel3:right:0:windows-quick-list@cinnamon.org:28', 'panel3:right:0:calendar@cinnamon.org:31']
 desktop-effects-minimize-time=200
 desktop-effects-minimize-transition='easeInQuad'
 desktop-effects-tile-effect='none'
@@ -34,7 +34,7 @@ bring-windows-to-current-workspace=true
 panel-edit-mode=false
 panels-hide-delay=['1:0', '2:0', '3:0']
 panels-show-delay=['1:0', '2:0', '3:0']
-next-desklet-id=6
+next-desklet-id=7
 no-adjacent-panel-barriers=true
 desktop-effects-close-time=175
 favorite-apps=['firefox.desktop', 'mintinstall.desktop', 'cinnamon-settings.desktop', 'gnome-terminal.desktop', 'nemo.desktop']
@@ -58,7 +58,7 @@ antialiasing='rgba'
 hinting='slight'
 
 [settings-daemon/peripherals/keyboard]
-numlock-state='off'
+numlock-state='on'
 
 [sounds]
 login-enabled=true
@@ -95,11 +95,6 @@ binding=['Print']
 command="shutter -a -o '/home/tsotne/Pictures/screenshot/%y-%m-%d_%T_$name.png'"
 name='shutter active window'
 
-[desktop/keybindings/custom-keybindings/custom0]
-binding=['<Primary><Shift>a']
-command='atom'
-name='open Atom'
-
 [desktop/keybindings/custom-keybindings/custom3]
 binding=['<Primary><Alt>Delete']
 command='gnome-system-monitor'
@@ -107,7 +102,7 @@ name='system monitor / task manager'
 
 [desktop/keybindings]
 looking-glass-keybinding=['<Primary><Super>l']
-custom-list=['custom1', 'custom2', 'custom3', 'custom4', 'custom5', 'custom6', 'custom0']
+custom-list=['custom1', 'custom2', 'custom3', 'custom4', 'custom5', 'custom6']
 
 [desktop/keybindings/media-keys]
 screenshot-clip=@as []
