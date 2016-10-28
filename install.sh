@@ -25,5 +25,3 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # install tools
 sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim tmux dropbox git vim 
 
-
-
