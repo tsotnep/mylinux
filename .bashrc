@@ -34,7 +34,7 @@ nc='\e[0m'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias ccopyprev='echo !! | xclip'
 alias rreswifi='sudo service network-manager restart'
-alias rrescinammon='sudo killall -HUP cinnamon'
+alias rrescinammon='sudo killall -HUP cinnamon && cinnamon --replace :0'
 alias install_basic_soft='sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim tmux'
 alias tmuxe='vim ~/.tmux.conf'
 alias reloadtmux='tmux source ~/.tmux.conf'
@@ -112,7 +112,17 @@ alias wss='cd ~/ws/workspace'
 ################################################################################ I N F O
 alias info_IPMAC='ifconfig'
 alias info_Shell='ps -p $$'
-alias info_Linux='echo XDG_CURRENT_DESKTOP = $XDG_CURRENT_DESKTOP && echo GDMSESSION = $GDMSESSION && cat /etc/*-release '
+alias info_Linux='
+echo
+echo Window manager::: && 
+wmctrl -m && 
+echo
+echo GUI::: && 
+echo XDG_CURRENT_DESKTOP = $XDG_CURRENT_DESKTOP && 
+echo GDMSESSION = $GDMSESSION && 
+echo
+echo Distro::: && 
+cat /etc/*-release '
 alias info_PC='inxi -Fx'
 alias info_Storage='pydf'
 
