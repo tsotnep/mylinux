@@ -89,7 +89,7 @@ alias rm=trash
 alias cp='cp -i'
 alias mv='mv -i'
 alias ln='ln -i'
-
+alias sz='du -sh'
 
 
 ################################################################################ MY-PC specific
@@ -169,7 +169,6 @@ exists() {
         echo "File exists!"
     fi
 }
-upinfo () { echo -ne "${green}$HOSTNAME's ${red}uptime is:${cyan}\t ";uptime | awk /'up/ {print $3,$4,$5,$6,$7,$8,$9,$10}'; echo -ne "${red}Today is:\t\t${cyan}" `date`; echo ""; }
 extract()
 {
 if [ -f "$1" ] ; then
