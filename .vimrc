@@ -16,4 +16,4 @@ set shiftwidth=4
 set softtabstop=2
 set tabstop=4
 set expandtab " On pressing tab, insert 4 spaces
-
+set noswapfile
