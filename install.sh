@@ -11,13 +11,13 @@ cd mylinux
 cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
 cp ~/.vimrc ~/.vimrc_bak 2>/dev/null
 cp ~/.tmux.conf ~/.tmux.conf_bak 2>/dev/null
-cp /etc/.bash.bashrc /etc/.bash.bashrc_bak 2>/dev/null
+#cp /etc/.bash.bashrc /etc/.bash.bashrc_bak 2>/dev/null
 
 # write new files
-ln -f .bashrc ~/
-ln -f .vimrc ~/
-ln -f .tmux.conf ~/
-ln -f .bash.bashrc /etc/
+ln -fs `pwd`/.bashrc $HOME
+ln -fs `pwd`/.vimrc $HOME
+ln -fs `pwd`/.tmux.conf $HOME
+#ln -fs .bash.bashrc /etc/
 
 # setup tmux, install package manager, ctrl+A + I -to install all packages
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
