@@ -242,3 +242,7 @@ rm *.mpf
 
 }
 
+ssh_create(){
+cd 
+ssh-keygen -t rsa -C "tsotnep@gmail.com"
+}
