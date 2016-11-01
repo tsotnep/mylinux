@@ -9,6 +9,8 @@ cd mylinux
 
 # backup files
 cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
+cp ~/.bash_profile ~/.bash_profile_bak 2>/dev/null
+echo "source ~/.bashrc" > ~/.bash_profile 
 cp ~/.vimrc ~/.vimrc_bak 2>/dev/null
 cp ~/.tmux.conf ~/.tmux.conf_bak 2>/dev/null
 #cp /etc/.bash.bashrc /etc/.bash.bashrc_bak 2>/dev/null

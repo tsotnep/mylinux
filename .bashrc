@@ -196,6 +196,16 @@ mkdirc() {
     cd $1;
 }
 
+mylinux_install(){
+    cd ~/ws/git/mylinux;
+    bash install.sh;
+}
+
+mylinux_install_edit(){
+    cd ~/ws/git/mylinux;
+    vim install.sh;
+} 
+
 mylinux_push() {
     cd ~/ws/git/mylinux;
     sshadd;
@@ -211,7 +221,24 @@ mylinux_pull() {
 
 
 mylinux_update_installed() {
+#update the packages_full with a list of ubstalled packages in the system
     comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ws/git/mylinux/packages_full;
 }
 
+clean_home(){
+cd ~/
+rm vivado.*
+rm webtalk.*
+rm *.log
+rm *.jou
+rm output.txt
+rm output_results.txt
+rm lspci
+rm transcript
+
+rm vsim.*
+rm *.mti
+rm *.mpf
+
+}
 
