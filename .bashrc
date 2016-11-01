@@ -61,6 +61,7 @@ alias g++='\g++ -std=c++11 -g'
 alias rsync='\rsync -avzcrl' #archive, verbose, compress, checksum, recursive, links,
 alias xclip='\xclip -selection c'
 alias ccat='pygmentize -g'
+alias cat='ccat'
 alias ter='gnome-terminal'
 alias minicom='picocom'
 alias lastchanges='sudo find $HOME -cmin 0.1'
