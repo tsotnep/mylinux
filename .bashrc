@@ -57,21 +57,31 @@ alias spwd2="PROMPT_DIRTRIM=1"
 
 #alias ll="ls -gtGhi --time-style long-iso --color=always | sed -re 's/(\-|d)[^ ]* //'"
 
+alias ll="lll"
+alias li="lli"
+alias lr="llr"
+alias lir="llir"
+alias la="lla"
 lll(){ 
-  \ls -lsgtGhi | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
+  \ls -lsgtGhi --color=always  | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
 }
 
 lli(){ 
-  \ls -lsgtGhi | awk '{printf "%7s %5s %5s %s %s \n",$1,$6,$7,$8,$9}';
+  \ls -lsgtGhi --color=always | awk '{printf "%7s %5s %5s %s %s \n",$1,$6,$7,$8,$9}';
 }
 
 llr(){ 
-  \ls -lsgtGhi | awk '{printf "%10s %5s %5s %s %s \n",$3,$6,$7,$8,$9}';
+  \ls -lsgtGhi --color=always | awk '{printf "%10s %5s %5s %s %s \n",$3,$6,$7,$8,$9}';
 }
 
 llir(){ 
-  \ls -lsgtGhi | awk '{printf "%7s %10s %5s %5s %s %s \n",$1,$3,$6,$7,$8,$9}';
+  \ls -lsgtGhi --color=always | awk '{printf "%7s %10s %5s %5s %s %s \n",$1,$3,$6,$7,$8,$9}';
 }
+lla(){ 
+  \ls -lsgtGhia --color=always | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
+}
+
+
 
 alias ..="cd .."
 alias ...="cd ../.."
