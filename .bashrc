@@ -1,4 +1,5 @@
 ######################################### B A S H  C O N F I G
+export TIME_STYLE=long-iso
 export PAGER="/usr/bin/most -s" #colorful manpages
 export GREP_OPTIONS='--color=auto'
 #history
@@ -31,6 +32,13 @@ nc='\e[0m'
 
 ####################################### S H O R T C U T S
 
+alias rm=trash
+alias cp='cp -i'
+alias mv='mv -i'
+alias ln='ln -i'
+alias sz='du -sh'
+
+
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias ccopyprev='echo !! | xclip'
 alias rreswifi='sudo service network-manager restart'
@@ -47,7 +55,24 @@ alias spwd="PS1='[\u@\h \W]\$ '"
 alias spwd1="PS1='[\W]\$ '"
 alias spwd2="PROMPT_DIRTRIM=1"
 
-alias ll="ls -gtGhi --color=always | sed -re 's/(\-|d)[^ ]* //'"
+#alias ll="ls -gtGhi --time-style long-iso --color=always | sed -re 's/(\-|d)[^ ]* //'"
+
+lll(){ 
+  \ls -lsgtGhi | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
+}
+
+lli(){ 
+  \ls -lsgtGhi | awk '{printf "%7s %5s %5s %s %s \n",$1,$6,$7,$8,$9}';
+}
+
+llr(){ 
+  \ls -lsgtGhi | awk '{printf "%10s %5s %5s %s %s \n",$3,$6,$7,$8,$9}';
+}
+
+llir(){ 
+  \ls -lsgtGhi | awk '{printf "%7s %10s %5s %5s %s %s \n",$1,$3,$6,$7,$8,$9}';
+}
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -84,13 +109,6 @@ alias makezip='zip -r9'
 alias maketar='tar -pczf'
 alias makebz2='tar -cvjf'
 alias makerar='rar a'
-
-alias rm=trash
-alias cp='cp -i'
-alias mv='mv -i'
-alias ln='ln -i'
-alias sz='du -sh'
-
 
 ################################################################################ MY-PC specific
 alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
