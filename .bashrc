@@ -1,4 +1,5 @@
 ######################################### B A S H  C O N F I G
+export TIME_STYLE=long-iso
 export PAGER="/usr/bin/most -s" #colorful manpages
 export GREP_OPTIONS='--color=auto'
 #history
@@ -30,7 +31,13 @@ nc='\e[0m'
 
 
 ####################################### S H O R T C U T S
-alias cad='tcsh'
+
+alias rm=trash
+alias cp='cp -i'
+alias mv='mv -i'
+alias ln='ln -i'
+alias sz='du -sh'
+
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias ccopyprev='echo !! | xclip'
 alias rreswifi='sudo service network-manager restart'
@@ -47,7 +54,34 @@ alias spwd="PS1='[\u@\h \W]\$ '"
 alias spwd1="PS1='[\W]\$ '"
 alias spwd2="PROMPT_DIRTRIM=1"
 
-alias ll="ls -gtGhi --color=always | sed -re 's/(\-|d)[^ ]* //'"
+#alias ll="ls -gtGhi --time-style long-iso --color=always | sed -re 's/(\-|d)[^ ]* //'"
+
+alias ll="lll"
+alias li="lli"
+alias lr="llr"
+alias lir="llir"
+alias la="lla"
+lll(){ 
+  \ls -lsgtGhi --color=always  | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
+}
+
+lli(){ 
+  \ls -lsgtGhi --color=always | awk '{printf "%7s %5s %5s %s %s \n",$1,$6,$7,$8,$9}';
+}
+
+llr(){ 
+  \ls -lsgtGhi --color=always | awk '{printf "%10s %5s %5s %s %s \n",$3,$6,$7,$8,$9}';
+}
+
+llir(){ 
+  \ls -lsgtGhi --color=always | awk '{printf "%7s %10s %5s %5s %s %s \n",$1,$3,$6,$7,$8,$9}';
+}
+lla(){ 
+  \ls -lsgtGhia --color=always | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
+}
+
+
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -61,6 +95,7 @@ alias g++='\g++ -std=c++11 -g'
 alias rsync='\rsync -avzcrl' #archive, verbose, compress, checksum, recursive, links,
 alias xclip='\xclip -selection c'
 alias ccat='pygmentize -g'
+alias cat='ccat'
 alias ter='gnome-terminal'
 alias minicom='picocom'
 alias lastchanges='sudo find $HOME -cmin 0.1'
@@ -83,13 +118,6 @@ alias makezip='zip -r9'
 alias maketar='tar -pczf'
 alias makebz2='tar -cvjf'
 alias makerar='rar a'
-
-alias rm=trash
-alias cp='cp -i'
-alias mv='mv -i'
-alias ln='ln -i'
-
-
 
 ################################################################################ MY-PC specific
 alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
@@ -168,7 +196,6 @@ exists() {
         echo "File exists!"
     fi
 }
-upinfo () { echo -ne "${green}$HOSTNAME's ${red}uptime is:${cyan}\t ";uptime | awk /'up/ {print $3,$4,$5,$6,$7,$8,$9,$10}'; echo -ne "${red}Today is:\t\t${cyan}" `date`; echo ""; }
 extract()
 {
 if [ -f "$1" ] ; then
