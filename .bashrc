@@ -38,7 +38,6 @@ alias mv='mv -i'
 alias ln='ln -i'
 alias sz='du -sh'
 
-
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias ccopyprev='echo !! | xclip'
 alias rreswifi='sudo service network-manager restart'
@@ -255,6 +254,8 @@ mylinux_update_installed() {
 
 clean_home(){
 cd ~/
+
+#vivado
 rm vivado.*
 rm webtalk.*
 rm *.log
@@ -264,6 +265,15 @@ rm output_results.txt
 rm lspci
 rm transcript
 
+#design vision
+rm *.syn
+rm *.mr
+rm *.svf
+rm ARCH
+rm ENTI
+rm synopsys_cache*
+
+#modelsim
 rm vsim.*
 rm *.mti
 rm *.mpf
