@@ -164,7 +164,7 @@ alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
 alias sshcomr='ssh root@162.243.43.46'
 alias sshcomn='ssh tsotnep@162.243.43.46'
 alias sshcom='ssh www-tsotnep@162.243.43.46'
-alias sshmypc='ssh -Y -C -c blowfish-cbc,arcfour tsotnep@193.40.246.130' #NUC
+alias sshmypcNUC='ssh -Y -C tsotnep@193.40.246.130' #old lenovo laptop, with ethernet-usb
 alias sshmylaptopUSB='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.229' #old lenovo laptop, with ethernet-usb
 alias sshmylaptopETH='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.225' #old lenovo laptop, with eth
 
