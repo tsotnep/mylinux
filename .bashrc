@@ -252,6 +252,9 @@ mylinux_pull() {
     pull;
 }
 
+mylinux_open(){
+  google-chrome https://github.com/tsotnep/mylinux
+}
 
 mylinux_update_installed() {
 #update the packages_full with a list of ubstalled packages in the system
