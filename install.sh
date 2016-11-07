@@ -29,6 +29,7 @@ sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync 
 sudo apt autoremove -y
 
 # install tmux2.2
+if [! -d ~/ws/git/tmux]; then {
 mkdir ~/ws/git/tmux
 cd ~/ws/git/tmux
 wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
@@ -36,10 +37,14 @@ tar -zxf tmux-2.2.tar.gz
 cd tmux-2.2
 ./configure && make
 sudo ln -sf `pwd`/tmux /usr/local/bin/
+}
 
 
 
-
+#config ssh to reuse tunnels
+echo host \* >> ~/.ssh/config
+echo "ControlMaster auto" >> ~/.ssh/config
+echo "ControlPath ~/.ssh/ssh_mux_%h_%p_%r" >> ~/.ssh/config
 
 
 
