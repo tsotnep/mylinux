@@ -37,15 +37,6 @@ alias conv_PDFtoGray='convert -density 600 -colorspace gray'
 alias rm=trash
 alias cp='cp -i'
 alias mv='mv -i'
-
-#alias cp='\rsync -vraP --info=progress2'
-#alias mv='\rsync -vraP --info=progress2 --remove-sent-files'
-
-alias rsync='\rsync -avzcrlP' 
-#alias mv='\rsync -avzcrlP --info=progress2 --partial --progress --append --rsh=ssh -r -h --remove-sent-files' #archive, verbose, compress, checksum, recursive, links,
-#alias cp='\rsync -avzcrlP --info=progress2 --partial --progress --append --rsh=ssh -r -h' #archive, verbose, compress, checksum, recursive, links,
-
-
 alias ln='ln -i'
 alias sz='du -sh'
 
@@ -103,6 +94,7 @@ alias rres='sudo shutdown -r now'
 alias shtdwn='sudo shutdown -H now'
 alias make='clear && make'
 alias g++='\g++ -std=c++11 -g'
+alias rsync='\rsync -avzcrl' #archive, verbose, compress, checksum, recursive, links,
 alias xclip='\xclip -selection c'
 alias ccat='pygmentize -g'
 alias cat='ccat'
