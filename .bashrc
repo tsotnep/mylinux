@@ -32,6 +32,8 @@ nc='\e[0m'
 
 ####################################### S H O R T C U T S
 
+
+alias conv_PDFtoGray='convert -density 600 -colorspace gray'
 alias rm=trash
 alias cp='cp -i'
 alias mv='mv -i'
@@ -98,7 +100,7 @@ alias ccat='pygmentize -g'
 alias cat='ccat'
 alias ter='gnome-terminal'
 alias minicom='picocom'
-alias lastchanges='sudo find $HOME -cmin 0.1'
+alias lastchanges='sudo find $HOME -cmin 0,1'
 alias mkdir='mkdir -p -v'
 alias cad='tcsh'
 
@@ -162,6 +164,10 @@ alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
 alias sshcomr='ssh root@162.243.43.46'
 alias sshcomn='ssh tsotnep@162.243.43.46'
 alias sshcom='ssh www-tsotnep@162.243.43.46'
+alias sshmypc='ssh -Y -C -c blowfish-cbc,arcfour tsotnep@193.40.246.130' #NUC
+alias sshmylaptopUSB='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.229' #old lenovo laptop, with ethernet-usb
+alias sshmylaptopETH='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.225' #old lenovo laptop, with eth
+
 
 
 ######################################### G I T
