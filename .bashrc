@@ -161,7 +161,7 @@ echo GDMSESSION = $GDMSESSION &&
 echo
 echo Distro::: && 
 cat /etc/*-release '
-alias info_PC='inxi -Fx'
+alias info_PC='sudo inxi -Fx && sudo dmidecode --type 17'
 alias info_Storage='pydf'
 
 ######################################### S S H
