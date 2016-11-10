@@ -25,7 +25,7 @@ ln -fs `pwd`/.tmux.conf $HOME
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # install tools
-sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git vim glipper tmux libevent-dev ncurses-dev most
+sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git vim glipper tmux libevent-dev ncurses-dev most pinta
 sudo apt autoremove -y
 
 # install tmux2.2
