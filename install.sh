@@ -54,6 +54,8 @@ echo "ControlPath ~/.ssh/ssh_mux_%h_%p_%r" >> ~/.ssh/config
 
 git config --global user.email "tsotnep@gmail.com"
 git config --global user.name "tsotnep"
+git push --set-upstream origin master
+git config --global push.default matching
 cd ~/ws/git/mylinux
 git remote remove origin
 git remote add origin git@github.com:tsotnep/mylinux.git
