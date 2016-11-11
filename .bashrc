@@ -249,7 +249,9 @@ mylinux_install_edit(){
 
 mylinux_push() {
     cd ~/ws/git/mylinux;
-    sshadd;
+    if ! ssh-add -l >/dev/null; then
+      sshadd;
+    fi
     adda;
     commit "msg: $1";
     push;
