@@ -104,8 +104,7 @@ alias shtdwn='sudo shutdown -H now'
 alias make='clear && make'
 alias g++='\g++ -std=c++11 -g'
 alias xclip='\xclip -selection c'
-alias ccat='pygmentize -g'
-alias cat='ccat'
+alias cat='pygmentize -g'
 alias ter='gnome-terminal'
 alias minicom='picocom'
 alias lastchanges='sudo find $HOME -cmin 0,1'
@@ -160,7 +159,7 @@ echo XDG_CURRENT_DESKTOP = $XDG_CURRENT_DESKTOP &&
 echo GDMSESSION = $GDMSESSION && 
 echo
 echo Distro::: && 
-cat /etc/*-release '
+\cat /etc/*-release'
 alias info_PC='inxi -Fx && sudo dmidecode --type 17'
 alias info_Storage='pydf'
 
