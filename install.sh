@@ -2,7 +2,7 @@
 # setup directories 
 mkdir ~/ws
 cd ~/ws
-mkdir workspace git logs vpn web Dropbox ssh
+mkdir workspace git logs vpn web Dropbox
 cd git
 git clone https://github.com/tsotnep/mylinux
 cd mylinux
