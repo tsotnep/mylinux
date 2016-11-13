@@ -1,4 +1,4 @@
-source ~/.bashrc
+source ~/.bash_aliases
 touch ../.check
 source ../.check
 rm ../.check
@@ -8,6 +8,18 @@ echo "$VBK"
 echo "$VTMUX"
 echo "$VGIT"
 echo "$VID"
+
+
+
+sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git vim glipper tmux libevent-dev ncurses-dev most pinta sublime-text
+#google chrome
+
+
+#everpad
+sudo add-apt-repository ppa:nvbn-rm/ppa
+sudo apt-get update
+sudo apt-get install everpad
+
 
 if [ "$VWS" != "1" ]
 then
@@ -25,6 +37,7 @@ if [ "$VBK" != "1" ]
 then
   # backup files
   cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
+  cp ~/.bash_aliases ~/.bash_aliases_bak 2>/dev/null
   cp ~/.bash_profile ~/.bash_profile_bak 2>/dev/null
   echo "source ~/.bashrc" > ~/.bash_profile 
   cp ~/.vimrc ~/.vimrc_bak 2>/dev/null
@@ -32,7 +45,7 @@ then
   #cp /etc/.bash.bashrc /etc/.bash.bashrc_bak 2>/dev/null
   
   # write new files
-  ln -fs `pwd`/.bashrc $HOME
+  ln -fs `pwd`/.bash_aliases $HOME/.bash_aliases
   ln -fs `pwd`/.vimrc $HOME
   ln -fs `pwd`/.tmux.conf $HOME
 fi
@@ -64,11 +77,7 @@ then
     rm install-open-eid.sh*
   fi
   echo "VID=1" >> ../.check 
-  # install tools
-  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git vim glipper tmux libevent-dev ncurses-dev most pinta google-chrome-stable
-  sudo apt autoremove -y
-
-
+  
 fi
 echo "VTMUX=1" >> ../.check
 

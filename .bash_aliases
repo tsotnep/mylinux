@@ -1,7 +1,6 @@
 ######################################### B A S H  C O N F I G
 export TIME_STYLE=long-iso
 export PAGER="most"
-export GREP_OPTIONS='--color=auto'
 #history
 export HISTFILESIZE=20000
 export HISTSIZE=10000
@@ -58,7 +57,11 @@ alias tmuxe='vim ~/.tmux.conf'
 alias reloadtmux='tmux source ~/.tmux.conf'
 alias reload='exec bash'
 alias bashrc='ccat ~/.bashrc'
+alias al='ccat ~/.bash_aliases'
+alias ale='vim ~/.bash_aliases'
+
 alias bashrce='vim ~/.bashrc'
+
 alias vimrce='vim ~/.vimrc'
 
 alias spwd="PS1='[\u@\h \W]\$ '"
