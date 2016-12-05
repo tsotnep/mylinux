@@ -132,16 +132,16 @@ alias makebz2='tar -cvjf'
 alias makerar='rar a'
 
 ################################################################################ MY-PC specific
-alias vpnati='openvpn --config ~/ws/vpn/openvpn/client.ovpn'
-alias shortcuts='ccat ~/ws/git/mylinux/shortcuts'
-alias shortcutse='vim ~/ws/git/mylinux/shortcuts'
-alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ws/git/mylinux/keyboardshortcuts'
+alias vpnati='openvpn --config ~/ownCloud/workspace/vpn/openvpn/client.ovpn'
+alias shortcuts='ccat ~/ownCloud/git/mylinux/shortcuts'
+alias shortcutse='vim ~/ownCloud/git/mylinux/shortcuts'
+alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ownCloud/git/mylinux/keyboardshortcuts'
 alias sshgenkey='ssh-keygen -t rsa -C "tsotnep@gmail.com"'
 alias sshadd='ssh-add ~/.ssh/id_rsa'
-alias mylinux='cd ~/ws/git/mylinux/'
-alias ws='cd ~/ws/'
-alias gt='cd ~/ws/git'
-alias wss='cd ~/ws/workspace'
+alias mylinux='cd ~/ownCloud/git/mylinux/'
+alias ow='cd ~/ownCloud/'
+alias gt='cd ~/ownCloud/git'
+alias ws='cd ~/ownCloud/workspace'
 
 
 
@@ -204,7 +204,7 @@ untrack() { git rm --cached $1; } #untrack already tracked file
 ############################################################################### S C R I P T S
 countfilesrec() { find $1 -type f | wc -l; }
 countfiles() { find $1 -type f -maxdepth 1 | wc -l; }
-picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; mkdir ~/ws/logs/picocom/ script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ws/logs/picocom/log_"$d"_"'$*'"; IFS=$old; }
+picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; mkdir ~/ownCloud/workspace/picocom/ script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ownCloud/workspace/picocom/log_"$d"_"'$*'"; IFS=$old; }
 exists() {
     if [ ! -f $1 ]; then
         echo "File not found!"
@@ -240,17 +240,17 @@ mkdirc() {
 }
 
 mylinux_install(){
-    cd ~/ws/git/mylinux;
+    cd ~/ownCloud/git/mylinux;
     bash install.sh;
 }
 
 mylinux_install_edit(){
-    cd ~/ws/git/mylinux;
+    cd ~/ownCloud/git/mylinux;
     vim install.sh;
 } 
 
 mylinux_push() {
-    cd ~/ws/git/mylinux;
+    cd ~/ownCloud/git/mylinux;
     if ! ssh-add -l >/dev/null; then
       sshadd;
     fi
@@ -260,7 +260,7 @@ mylinux_push() {
 }
 
 mylinux_pull() {
-    cd ~/ws/git/mylinux;
+    cd ~/ownCloud/git/mylinux;
     pull;
 }
 
@@ -270,7 +270,7 @@ mylinux_open(){
 
 mylinux_update_installed() {
 #update the packages_full with a list of ubstalled packages in the system
-    comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ws/git/mylinux/packages_full;
+    comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ownCloud/git/mylinux/packages_full;
 }
 
 clean_home(){

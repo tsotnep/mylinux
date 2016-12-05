@@ -1,113 +1,76 @@
-source ~/.bash_aliases
-touch ../.check
-source ../.check
-rm ../.check
 echo "Start.."
-echo "$VWS"
-echo "$VBK"
-echo "$VTMUX"
-echo "$VGIT"
-echo "$VID"
+source ~/.bash_aliases
 
-
-
-sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git vim glipper tmux libevent-dev ncurses-dev most pinta sublime-text
-#google chrome
-
-
-#everpad
-sudo add-apt-repository ppa:nvbn-rm/ppa
-sudo apt-get update
-sudo apt-get install everpad
-
-
-if [ "$VWS" != "1" ]
+read -n1 -ep "install packages from apt? [y,n] - " ans 
+if [ $ans == "y" ]
 then
-  # setup directories 
-  mkdir ~/ws
-  cd ~/ws
-  mkdir workspace git logs vpn web Dropbox
-  cd git
-  git clone https://github.com/tsotnep/mylinux
-  cd mylinux
+  sudo apt update
+  sudo apt upgrade
+  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper tmux libevent-dev ncurses-dev most pinta sublime-text
+  sudo apt autoremove
 fi
-echo "VWS=1" >> ../.check
 
-if [ "$VBK" != "1" ]
+read -n1 -ep "create sumlinks? [y,n] - " ans 
+if [ $ans == "y" ]
 then
-  # backup files
-  cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
   cp ~/.bash_aliases ~/.bash_aliases_bak 2>/dev/null
-  cp ~/.bash_profile ~/.bash_profile_bak 2>/dev/null
-  echo "source ~/.bashrc" > ~/.bash_profile 
   cp ~/.vimrc ~/.vimrc_bak 2>/dev/null
   cp ~/.tmux.conf ~/.tmux.conf_bak 2>/dev/null
-  #cp /etc/.bash.bashrc /etc/.bash.bashrc_bak 2>/dev/null
-  
-  # write new files
-  ln -fs `pwd`/.bash_aliases $HOME/.bash_aliases
+  ln -fs `pwd`/.bash_aliases $HOME
   ln -fs `pwd`/.vimrc $HOME
   ln -fs `pwd`/.tmux.conf $HOME
 fi
-echo "VBK=1" >> ../.check
 
-
-if [ "$VTMUX" != "1" ]
+read -n1 -ep "install tmux2.2? [y,n] - " ans 
+if [ $ans == "y" ]
 then
-  # setup tmux, install package manager, ctrl+A + I -to install all packages
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-  # install tmux2.2
-  if [ ! -d ~/ws/git/tmux ]
-  then
-    mkdir ~/ws/git/tmux
-    cd ~/ws/git/tmux
-    wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
-    tar -zxf tmux-2.2.tar.gz
-    cd tmux-2.2
-    ./configure && make
-    sudo ln -sf `pwd`/tmux /usr/local/bin/
-  fi
-
-  if [ "$VID" != "1" ]
-  then
-    #download and install id software
-    wget https://installer.id.ee/media/install-scripts/install-open-eid.sh
-    bash install-open-eid.sh
-    rm install-open-eid.sh*
-  fi
-  echo "VID=1" >> ../.check 
-  
+  cd ~/ownCloud/git/tmux/tmux-2.2
+  ./configure && make
+  sudo ln -sf `pwd`/tmux /usr/local/bin/
 fi
-echo "VTMUX=1" >> ../.check
 
 
-if [ "$VGIT" != "1" ]
+read -n1 -ep "install tmux plugins manager? [y,n] - " ans 
+if [ $ans == "y" ]
 then
-  #config ssh to reuse tunnels
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+  
+
+read -n1 -ep "install ID reader software? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  wget https://installer.id.ee/media/install-scripts/install-open-eid.sh
+  bash install-open-eid.sh
+  rm install-open-eid.sh*
+fi
+
+read -n1 -ep "generate ssh key? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  ssh-keygen -t rsa -C "tsotnep@gmail.com"
+  ssh-add ~/.ssh/id_rsa
+fi
+
+ssh-add ~/.ssh/id_rsa
+
+read -n1 -ep "config ssh to reuse tunnels? [y,n] - " ans 
+if [ $ans == "y" ]
+then
   echo host \* >> ~/.ssh/config
   echo "ControlMaster auto" >> ~/.ssh/config
   echo "ControlPath ~/.ssh/ssh_mux_%h_%p_%r" >> ~/.ssh/config
+fi
 
-  #config git
+read -n1 -ep "config git [y,n] - " ans 
+if [ $ans == "y" ]
+then
   git config --global user.email "tsotnep@gmail.com"
   git config --global user.name "tsotnep"
-  git push --set-upstream origin master
-  git config --global push.default matching
-
-  #config mylinux to use ssh instead of https
-  cd ~/ws/git/mylinux
   git remote remove origin
   git remote add origin git@github.com:tsotnep/mylinux.git
-
-  if [ ! -f ~/.ssh/id_rsa ]
-  then
-    #generate SSH key if necessary
-    ssh-keygen -t rsa -C "tsotnep@gmail.com"
-    ssh-add ~/.ssh/id_rsa
-  fi
+  git config --global push.default matching
+  # git push --set-upstream origin master
 fi
-echo "VGIT=1" >> ../.check
-
 
 echo "Done.."
