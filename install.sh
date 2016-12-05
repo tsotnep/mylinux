@@ -49,7 +49,6 @@ read -n1 -ep "generate ssh key? [y,n] - " ans
 if [ $ans == "y" ]
 then
   ssh-keygen -t rsa -C "tsotnep@gmail.com"
-  ssh-add ~/.ssh/id_rsa
 fi
 
 ssh-add ~/.ssh/id_rsa
@@ -67,9 +66,9 @@ if [ $ans == "y" ]
 then
   git config --global user.email "tsotnep@gmail.com"
   git config --global user.name "tsotnep"
-  git remote remove origin
-  git remote add origin git@github.com:tsotnep/mylinux.git
   git config --global push.default matching
+  # git remote remove origin
+  # git remote add origin git@github.com:tsotnep/mylinux.git
   # git push --set-upstream origin master
 fi
 
