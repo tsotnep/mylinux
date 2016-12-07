@@ -56,10 +56,10 @@ alias install_basic_soft='sudo apt install -y pydf inxi ack-grep pydf picocom py
 alias tmuxe='vim ~/.tmux.conf'
 alias reloadtmux='tmux source ~/.tmux.conf'
 alias reload='exec bash'
-alias ccat='pygmentize -g'
+alias cat='pygmentize -g'
 alias diff='colordiff'
-alias bashrc='ccat ~/.bashrc'
-alias al='ccat ~/.bash_aliases'
+alias bashrc='cat ~/.bashrc'
+alias al='cat ~/.bash_aliases'
 alias ale='vim ~/.bash_aliases'
 
 alias bashrce='vim ~/.bashrc'
@@ -104,7 +104,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias lvim='vim -c "normal '\''0"'  #open last vim
-alias rres='sudo shutdown -r now'
 alias shtdwn='sudo shutdown -H now'
 alias make='clear && make'
 alias g++='\g++ -std=c++11 -g'
@@ -135,7 +134,7 @@ alias makerar='rar a'
 
 ################################################################################ MY-PC specific
 alias vpnati='openvpn --config ~/ownCloud/workspace/vpn/openvpn/client.ovpn'
-alias shortcuts='ccat ~/ownCloud/git/mylinux/shortcuts'
+alias shortcuts='cat ~/ownCloud/git/mylinux/shortcuts'
 alias shortcutse='vim ~/ownCloud/git/mylinux/shortcuts'
 alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ownCloud/git/mylinux/keyboardshortcuts'
 alias sshgenkey='ssh-keygen -t rsa -C "tsotnep@gmail.com"'
