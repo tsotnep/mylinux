@@ -6,7 +6,7 @@ if [ $ans == "y" ]
 then
   sudo apt update
   sudo apt upgrade
-  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper tmux libevent-dev ncurses-dev most pinta sublime-text
+  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake
   sudo apt autoremove
 fi
 
@@ -24,7 +24,22 @@ fi
 read -n1 -ep "install tmux2.2? [y,n] - " ans 
 if [ $ans == "y" ]
 then
-  cd ~/ownCloud/git/tmux/tmux-2.2
+  mkdirc ~/ownCloud/git/tmux/tmux2.2
+  wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
+  tar -zxf tmux-2.2.tar.gz
+  cd tmux-2.2
+  ./configure && make
+  sudo ln -sf `pwd`/tmux /usr/local/bin/
+fi
+
+
+read -n1 -ep "install tmux2.4? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  mkdirc ~/ownCloud/git/tmux/tmux2.4
+  git clone https://github.com/tmux/tmux.git
+  cd tmux
+  sh autogen.sh
   ./configure && make
   sudo ln -sf `pwd`/tmux /usr/local/bin/
 fi

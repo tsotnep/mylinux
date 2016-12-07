@@ -1,6 +1,6 @@
 ######################################### B A S H  C O N F I G
 export TIME_STYLE=long-iso
-export PAGER="most"
+#export PAGER="most"
 #history
 export HISTFILESIZE=20000
 export HISTSIZE=10000
@@ -56,6 +56,8 @@ alias install_basic_soft='sudo apt install -y pydf inxi ack-grep pydf picocom py
 alias tmuxe='vim ~/.tmux.conf'
 alias reloadtmux='tmux source ~/.tmux.conf'
 alias reload='exec bash'
+alias ccat='pygmentize -g'
+alias diff='colordiff'
 alias bashrc='ccat ~/.bashrc'
 alias al='ccat ~/.bash_aliases'
 alias ale='vim ~/.bash_aliases'
