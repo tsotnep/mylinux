@@ -16,9 +16,14 @@ then
   cp ~/.bash_aliases ~/.bash_aliases_bak 2>/dev/null
   cp ~/.vimrc ~/.vimrc_bak 2>/dev/null
   cp ~/.tmux.conf ~/.tmux.conf_bak 2>/dev/null
+  cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
+
   ln -fs `pwd`/.bash_aliases $HOME
   ln -fs `pwd`/.vimrc $HOME
   ln -fs `pwd`/.tmux.conf $HOME
+  ln -fs `pwd`/.bashrc $HOME
+
+
 fi
 
 read -n1 -ep "install tmux2.2? [y,n] - " ans 

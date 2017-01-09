@@ -48,6 +48,7 @@ alias rsync='\rsync -avzcrlP'
 alias ln='ln -i'
 alias sz='du -sh'
 
+alias tail='grc tail -f'
 alias classstatus='google-chrome http://ati.ttu.ee/klassi-staatus/'
 alias ccopyprev='echo !! | xclip'
 alias rreswifi='sudo service network-manager restart'
@@ -200,12 +201,13 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
+alias picocom='\picocom -e x -b 57600 /dev/ttyUSB0'
 
 
 ############################################################################### S C R I P T S
 countfilesrec() { find $1 -type f | wc -l; }
 countfiles() { find $1 -type f -maxdepth 1 | wc -l; }
-picocom() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; mkdir ~/ownCloud/workspace/picocom/ script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ownCloud/workspace/picocom/log_"$d"_"'$*'"; IFS=$old; }
+picocom_script() { d=`date +%d_%m_%Y_%H_%M_%S`; old="$IFS"; IFS='_'; mkdir ~/ownCloud/workspace/picocom/; script -f -c 'sudo \picocom -e x -b 115200 /dev/ttyACM0' ~/ownCloud/workspace/picocom/log_"$d"_"'$*'"; IFS=$old; }
 exists() {
     if [ ! -f $1 ]; then
         echo "File not found!"
