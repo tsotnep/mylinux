@@ -18,10 +18,10 @@ then
   cp ~/.tmux.conf ~/.tmux.conf_bak 2>/dev/null
   cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
 
-  ln -fs `pwd`/.bash_aliases $HOME
-  ln -fs `pwd`/.vimrc $HOME
-  ln -fs `pwd`/.tmux.conf $HOME
-  ln -fs `pwd`/.bashrc $HOME
+  ln -fs `pwd`/bash_aliases $HOME/.bash_aliases
+  ln -fs `pwd`/vimrc $HOME/.vimrc
+  ln -fs `pwd`/tmux.conf $HOME/.tmux.conf
+  ln -fs `pwd`/bashrc $HOME/.bashrc
 
 
 fi
@@ -35,6 +35,9 @@ then
   cd tmux-2.2
   ./configure && make
   sudo ln -sf `pwd`/tmux /usr/local/bin/
+  cd ~/ownCloud/git/mylinux
+  rm tmux-2.2.tar.gz
+  rm tmux-2.2
 fi
 
 
