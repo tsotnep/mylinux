@@ -8,22 +8,18 @@ then
   sudo apt upgrade
   sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake
   sudo apt autoremove
+  echo "Install Chrome manually"
 fi
 
 read -n1 -ep "create sumlinks? [y,n] - " ans 
 if [ $ans == "y" ]
 then
-  cp ~/.bash_aliases ~/.bash_aliases_bak 2>/dev/null
-  cp ~/.vimrc ~/.vimrc_bak 2>/dev/null
-  cp ~/.tmux.conf ~/.tmux.conf_bak 2>/dev/null
-  cp ~/.bashrc ~/.bashrc_bak 2>/dev/null
-
-  ln -fs `pwd`/bash_aliases $HOME/.bash_aliases
-  ln -fs `pwd`/vimrc $HOME/.vimrc
-  ln -fs `pwd`/tmux.conf $HOME/.tmux.conf
-  ln -fs `pwd`/bashrc $HOME/.bashrc
-
-
+  # Force, Symbolic, Backup
+  ln -fsb `pwd`/bash_aliases $HOME/.bash_aliases
+  ln -fsb `pwd`/vimrc $HOME/.vimrc
+  ln -fsb `pwd`/tmux.conf $HOME/.tmux.conf
+  ln -fsb `pwd`/bashrc $HOME/.bashrc
+  sudo ln -fsb `pwd`/csh.cshrc /etc/csh.cshrc
 fi
 
 read -n1 -ep "install tmux2.2? [y,n] - " ans 
@@ -41,16 +37,16 @@ then
 fi
 
 
-read -n1 -ep "install tmux2.4? [y,n] - " ans 
-if [ $ans == "y" ]
-then
-  mkdirc ~/ownCloud/git/tmux/tmux2.4
-  git clone https://github.com/tmux/tmux.git
-  cd tmux
-  sh autogen.sh
-  ./configure && make
-  sudo ln -sf `pwd`/tmux /usr/local/bin/
-fi
+# read -n1 -ep "install tmux2.4? [y,n] - " ans 
+# if [ $ans == "y" ]
+# then
+#   mkdirc ~/ownCloud/git/tmux/tmux2.4
+#   git clone https://github.com/tmux/tmux.git
+#   cd tmux
+#   sh autogen.sh
+#   ./configure && make
+#   sudo ln -sf `pwd`/tmux /usr/local/bin/
+# fi
 
 
 read -n1 -ep "install tmux plugins manager? [y,n] - " ans 
@@ -93,7 +89,14 @@ then
   cd ~/ownCloud/git/mylinux  
   git remote remove origin
   git remote add origin git@github.com:tsotnep/mylinux.git
-  git push --set-upstream origin master
+
+  echo ~/.ssh/id_rsa.pub
+  read -n1 -ep "do you have this public key in git server? [y,n] - " ans 
+  if [ $ans == "y" ]
+  then
+    git push --set-upstream origin master
+  fi
+
 fi
 
 echo "Done.."
