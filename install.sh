@@ -4,11 +4,11 @@ source ~/.bash_aliases
 read -n1 -ep "install packages from apt? [y,n] - " ans 
 if [ $ans == "y" ]
 then
+  echo "using sudo for apt"
   sudo apt update
   sudo apt upgrade
-  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake
+  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake shutter sublime-text
   sudo apt autoremove
-  echo "Install Chrome manually"
 fi
 
 read -n1 -ep "create sumlinks? [y,n] - " ans 
@@ -19,21 +19,25 @@ then
   ln -fsb `pwd`/vimrc $HOME/.vimrc
   ln -fsb `pwd`/tmux.conf $HOME/.tmux.conf
   ln -fsb `pwd`/bashrc $HOME/.bashrc
+  echo "using sudo for linkin csh.cshrc in /etc/"
   sudo ln -fsb `pwd`/csh.cshrc /etc/csh.cshrc
 fi
 
 read -n1 -ep "install tmux2.2? [y,n] - " ans 
 if [ $ans == "y" ]
 then
-  mkdirc ~/ownCloud/git/tmux/tmux2.2
+  mkdir ~/ownCloud/git/tmux
+  mkdir ~/ownCloud/git/tmux/tmux2.2
+  cd ~/ownCloud/git/tmux/tmux2.2
   wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
   tar -zxf tmux-2.2.tar.gz
   cd tmux-2.2
   ./configure && make
+  echo "using sudo for linking tmux binary in /usr/local/bin"
   sudo ln -sf `pwd`/tmux /usr/local/bin/
-  cd ~/ownCloud/git/mylinux
-  rm tmux-2.2.tar.gz
-  rm tmux-2.2
+ # cd ~/ownCloud/git/mylinux
+ # rm tmux-2.2.tar.gz
+ # rm tmux-2.2
 fi
 
 
@@ -100,3 +104,7 @@ then
 fi
 
 echo "Done.."
+
+echo "Install Chrome manually"
+echo "Setup keyboard shortcuts"
+echo "Configure keyboard"

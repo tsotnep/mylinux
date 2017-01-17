@@ -87,7 +87,7 @@ setenv JDK16
 
 ##################### DO NOT DELETE FOLLOWING ######################
 
-if ( ${TERM} == "xterm" || ${TERM} == "dtterm" || ${TERM} == "xterm-color" || ${TERM} == "xterm-256color") then
+if ( ${TERM} == "xterm" || ${TERM} == "dtterm" || ${TERM} == "xterm-color" || ${TERM} == "xterm-256color" || ${TERM} == "screen-256color" ) then
  source /cad/cadrc.include
  set LC_ALL='en_US.UTF-8'
 endif
