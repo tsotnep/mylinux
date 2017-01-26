@@ -99,6 +99,9 @@ then
   if [ $ans == "y" ]
   then
     git push --set-upstream origin master
+  else
+    echo "Your Public Key, enter it here: https://github.com/settings/keys"
+    cat ~/.ssh/id_rsa.pub
   fi
 
 fi
