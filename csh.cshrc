@@ -68,7 +68,7 @@ endif
 #---------------- 8 bits ------------------------
 
 tty -s
-if ($status == 0) stty cs8 -istrip -parenb 
+if ($status == 0) stty cs8 -istrip -parenb
 
 setenv LANG C
 setenv LC_CTYPE iso_8859_1
@@ -215,8 +215,6 @@ alias git-cmt      'git commit -m'
 alias git-psh      'git push'
 alias git-pl       'git pull'
 
-alias vivado	   'setenv LC_ALL en_US.UTF-8 && /cad/x_16/Vivado/2016.1/bin/vivado'
+alias vivado	   'setenv SWT_GTK3 0 && setenv LC_ALL en_US.UTF-8 && /cad/x_16/Vivado/2016.1/bin/vivado'
 
-alias ams_cds      'setenv OA_UNSUPPORTED_PLAT linux_rhel50_gcc44x && /cad/dk/c/v4.11/cds/bin/ams_cds'
-
-
+alias ams_cds      'setenv SWT_GTK3 0 && setenv OA_UNSUPPORTED_PLAT linux_rhel50_gcc44x && /cad/dk/c/v4.11/cds/bin/ams_cds'

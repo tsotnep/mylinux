@@ -7,7 +7,7 @@ then
   echo "using sudo for apt"
   sudo apt update
   sudo apt upgrade
-  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake shutter sublime-text
+  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake shutter sublime-text tree
   sudo apt autoremove
 fi
 
