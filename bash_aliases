@@ -169,16 +169,12 @@ alias info_PC='inxi -Fx && sudo dmidecode --type 17'
 alias info_Storage='pydf'
 
 ######################################### S S H
-#alias sshttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
-#alias sshati='ssh -Y tsotne.putkaradze@intra@fx1'
-alias sshstr='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
-alias sshpitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
-alias sshcomr='ssh root@162.243.43.46'
-alias sshcomn='ssh tsotnep@162.243.43.46'
-alias sshcom='ssh www-tsotnep@162.243.43.46'
-alias sshmypcNUC='ssh -Y -C tsotnep@193.40.246.130' #old lenovo laptop, with ethernet-usb
-alias sshmylaptopUSB='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.229' #old lenovo laptop, with ethernet-usb
-alias sshmylaptopETH='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.225' #old lenovo laptop, with eth
+alias ssh_ttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
+alias ssh_ati='ssh -Y tsotne.putkaradze@intra@fx1'
+alias ssh_str='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
+alias ssh_pitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
+alias ssh_vineeripirukas='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.42'
+alias ssh_fpga16='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.130'
 
 
 
