@@ -6,15 +6,43 @@ if [ $ans == "y" ]
 then
   echo "using sudo for apt"
   sudo apt update
-  sudo apt upgrade
-  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync vim dropbox git gitk vim glipper libevent-dev ncurses-dev most pinta sublime-text automake shutter sublime-text tree
+  sudo apt upgrade -y
+  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync 
+  sudo apt install -y vim dropbox git gitk vim glipper libevent-dev ncurses-dev most 
+  sudo apt install -y pinta sublime-text automake shutter sublime-text tree
+  sudo apt install -y owncloud-client
   sudo apt autoremove
 fi
+
+
+
+read -n1 -ep "install chrome? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  echo "using sudo for apt"
+  cd ~/Downloads
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i google-chrome-stable_current_amd64.deb
+fi
+
+
+
+read -n1 -ep "install atom? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  echo "using sudo for apt"
+  sudo add-apt-repository ppa:webupd8team/atom
+  sudo apt-get update
+  sudo apt-get install -y atom
+fi
+
+
 
 read -n1 -ep "create sumlinks? [y,n] - " ans 
 if [ $ans == "y" ]
 then
-  # Force, Symbolic, Backup
+  # Force, Symbolic, Backupi
+  cd ~/ownCloud/git/mylinux
   ln -fsb `pwd`/bash_aliases $HOME/.bash_aliases
   ln -fsb `pwd`/vimrc $HOME/.vimrc
   ln -fsb `pwd`/tmux.conf $HOME/.tmux.conf
@@ -22,6 +50,8 @@ then
   echo "using sudo for linkin csh.cshrc in /etc/"
   sudo ln -fsb `pwd`/csh.cshrc /etc/csh.cshrc
 fi
+
+
 
 read -n1 -ep "install tmux2.2? [y,n] - " ans 
 if [ $ans == "y" ]
@@ -35,12 +65,10 @@ then
   ./configure && make
   echo "using sudo for linking tmux binary in /usr/local/bin"
   sudo ln -sf `pwd`/tmux /usr/local/bin/
- # cd ~/ownCloud/git/mylinux
- # rm tmux-2.2.tar.gz
- # rm tmux-2.2
 fi
 
 
+#no need for 2.4, 2.2 is alright.
 # read -n1 -ep "install tmux2.4? [y,n] - " ans 
 # if [ $ans == "y" ]
 # then
@@ -60,6 +88,7 @@ then
 fi
   
 
+
 read -n1 -ep "install ID reader software? [y,n] - " ans 
 if [ $ans == "y" ]
 then
@@ -68,13 +97,16 @@ then
   rm install-open-eid.sh*
 fi
 
+
+
+
 read -n1 -ep "generate ssh key? [y,n] - " ans 
 if [ $ans == "y" ]
 then
   ssh-keygen -t rsa -C "tsotnep@gmail.com"
 fi
 
-ssh-add ~/.ssh/id_rsa
+
 
 read -n1 -ep "config ssh to reuse tunnels? [y,n] - " ans 
 if [ $ans == "y" ]
@@ -84,15 +116,15 @@ then
   echo "ControlPath ~/.ssh/ssh_mux_%h_%p_%r" >> ~/.ssh/config
 fi
 
-read -n1 -ep "config git [y,n] - " ans 
+
+
+read -n1 -ep "add ssh key; config git with --global.*; print current public key if needed; [y,n] - " ans 
 if [ $ans == "y" ]
-then
+then  
+  ssh-add ~/.ssh/id_rsa
   git config --global user.email "tsotnep@gmail.com"
   git config --global user.name "tsotnep"
   git config --global push.default matching
-  cd ~/ownCloud/git/mylinux  
-  git remote remove origin
-  git remote add origin git@github.com:tsotnep/mylinux.git
 
   echo ~/.ssh/id_rsa.pub
   read -n1 -ep "do you have this public key in git server? [y,n] - " ans 
@@ -103,11 +135,19 @@ then
     echo "Your Public Key, enter it here: https://github.com/settings/keys"
     cat ~/.ssh/id_rsa.pub
   fi
-
 fi
+
+
+
+#if its owncloud, then its always without https
+# read -n1 -ep "config mylinux repo in case it was downloaded with https [y,n] - " ans 
+# if [ $ans == "y" ]
+# then
+#   cd ~/ownCloud/git/mylinux  
+#   git remote remove origin
+#   git remote add origin git@github.com:tsotnep/mylinux.git
+# fi
 
 echo "Done.."
 
-echo "Install Chrome manually"
-echo "Setup keyboard shortcuts"
-echo "Configure keyboard"
+echo "Setup keyboard shortcuts and add georgian language and thats it."
