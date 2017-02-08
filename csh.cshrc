@@ -13,27 +13,6 @@ alias rm            'rm -i'
 alias pwd           'echo $cwd'
 alias del           'rm -i'
 
-# Colors!
-set     red="%{\033[1;31m%}"
-set   green="%{\033[0;32m%}"
-set  yellow="%{\033[1;33m%}"
-set    blue="%{\033[1;34m%}"
-set magenta="%{\033[1;35m%}"
-set    cyan="%{\033[1;36m%}"
-set   white="%{\033[0;37m%}"
-set     end="%{\033[0m%}" # This is needed at the end... :(
-
-# Setting the actual prompt.  I made two separate versions for you to try, pick
-# whichever one you like better, and change the colors as you want.  Just don't
-# mess with the ${end} guy in either line...  Comment out or delete the prompt you don't use.
-
-#set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} "
-set prompt="[${green}%n${blue}@%m ${white}%~ ]${end} "
-
-# Clean up after ourselves...
-unset red green yellow blue magenta cyan yellow white end
-
-
 
 if ( ! ${?TERM} ) then
  setenv TERM vt100
@@ -111,11 +90,6 @@ set history=512
 set ignoreeof
 set notify
 set savehist=512
-#set prompt="%m:%/%#"
-set prompt="%{\e[32;1m%}%n@%m (tcsh) %{\e[34;1m%} %~ $ %{\e[37;m%} "
-#set prompt="`hostname`{`whoami`}\!: "
-#set time=100
-
 #          commands for interactive shells
 
 #date
@@ -218,3 +192,31 @@ alias git-pl       'git pull'
 alias vivado	   'setenv SWT_GTK3 0 && setenv LC_ALL en_US.UTF-8 && /cad/x_16/Vivado/2016.1/bin/vivado'
 
 alias ams_cds      'setenv SWT_GTK3 0 && setenv OA_UNSUPPORTED_PLAT linux_rhel50_gcc44x && /cad/dk/c/v4.11/cds/bin/ams_cds'
+
+# Colors!
+set     red="%{\033[1;31m%}"
+set   green="%{\033[0;32m%}"
+set  yellow="%{\033[1;33m%}"
+set    blue="%{\033[1;34m%}"
+set magenta="%{\033[1;35m%}"
+set    cyan="%{\033[1;36m%}"
+set   white="%{\033[0;37m%}"
+set     end="%{\033[0m%}" # This is needed at the end... :(
+
+# Setting the actual prompt.  I made two separate versions for you to try, pick
+# whichever one you like better, and change the colors as you want.  Just don't
+# mess with the ${end} guy in either line...  Comment out or delete the prompt you don't use.
+
+#set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} "
+set prompt="[${green}%n${green}@%m ${white}(tcsh)%~ ]${end} "
+
+# Clean up after ourselves...
+unset red green yellow blue magenta cyan yellow white end
+
+
+#set prompt="%m:%/%#"
+#set prompt="`hostname`{`whoami`}\!: "
+#set prompt="%{\e[32;1m%}%n@%m (tcsh) %{\e[34;1m%} %~ $ %{\e[37;m%} "
+#set time=100
+
+

@@ -17,3 +17,6 @@ set softtabstop=2
 set tabstop=4
 set expandtab " On pressing tab, insert 4 spaces
 set noswapfile
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
