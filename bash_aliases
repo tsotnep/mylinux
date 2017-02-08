@@ -197,7 +197,8 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
-alias picocom='\picocom -e x -b 57600 /dev/ttyUSB0'
+alias picocom_noc='\picocom -e x -b 57600 /dev/ttyUSB0'
+alias picocom_etse='\picocom -e x -b 115200 /dev/ttyACM0'
 
 
 ############################################################################### S C R I P T S
