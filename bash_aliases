@@ -171,10 +171,10 @@ alias info_Storage='pydf'
 ######################################### S S H
 alias ssh_ttu='ssh -Y -l tsotne.putkaradze@intra.ttu.ee proksi.intra.ttu.ee'
 alias ssh_ati='ssh -Y tsotne.putkaradze@intra@fx1'
-alias ssh_str='ssh -Y -C -c blowfish-cbc,arcfour tsotne@strudel.pld.ttu.ee'
-alias ssh_pitsa='ssh -Y -C -c blowfish-cbc,arcfour tsotne@pitsa.pld.ttu.ee'
-alias ssh_vineeripirukas='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.42'
-alias ssh_fpga16='ssh -Y -C -c blowfish-cbc,arcfour tsotne@193.40.246.130'
+alias ssh_str='ssh -Y -C tsotne@strudel.pld.ttu.ee'
+alias ssh_pitsa='ssh -Y -C tsotne@pitsa.pld.ttu.ee'
+alias ssh_vineeripirukas='ssh -Y -C tsotne@193.40.246.42'
+alias ssh_fpga16='ssh -Y -C tsotne@193.40.246.130'
 
 
 
@@ -197,8 +197,10 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
-alias picocom='\picocom -e x -b 57600 /dev/ttyUSB0'
 
+
+picocom_noc() { sudo chmod a+rw /dev/ttyUSB0;  \picocom -e x -b 57600 /dev/ttyUSB0; }
+picocom_etse() { sudo chmod a+rw /dev/ttyACM0; \picocom -e x -b 115200 /dev/ttyACM0; }
 
 ############################################################################### S C R I P T S
 countfilesrec() { find $1 -type f | wc -l; }
@@ -272,8 +274,7 @@ mylinux_update_installed() {
     comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ownCloud/git/mylinux/packages_full;
 }
 
-clean_home(){
-cd ~/
+clean(){
 
 #vivado
 rm vivado.*
