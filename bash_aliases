@@ -200,7 +200,6 @@ unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
 
-
 picocom_noc() { sudo chmod a+rw /dev/ttyUSB0;  \picocom -e x -b 57600 /dev/ttyUSB0; }
 picocom_etse() { sudo chmod a+rw /dev/ttyACM0; \picocom -e x -b 115200 /dev/ttyACM0; }
 
