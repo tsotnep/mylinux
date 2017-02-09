@@ -196,6 +196,7 @@ alias ams_cds      'setenv SWT_GTK3 0 && setenv OA_UNSUPPORTED_PLAT linux_rhel50
 # Colors!
 set     red="%{\033[1;31m%}"
 set   green="%{\033[0;32m%}"
+set   lightgreen="%{\033[1;32m%}"
 set  yellow="%{\033[1;33m%}"
 set    blue="%{\033[1;34m%}"
 set magenta="%{\033[1;35m%}"
@@ -208,7 +209,8 @@ set     end="%{\033[0m%}" # This is needed at the end... :(
 # mess with the ${end} guy in either line...  Comment out or delete the prompt you don't use.
 
 #set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} "
-set prompt="[${green}%n${green}@%m ${white}(tcsh)%~ ]${end} "
+#set prompt="[${green}%n${green}@%m ${white}(tcsh)%~ ]${end} "
+set prompt="${lightgreen}%n${lightgreen}@%m ${white}(tcsh)%~ ${end} "
 
 # Clean up after ourselves...
 unset red green yellow blue magenta cyan yellow white end
