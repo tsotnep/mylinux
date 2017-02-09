@@ -37,6 +37,16 @@ then
 fi
 
 
+read -n1 -ep "install skype-alpha? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  echo "using sudo for apt"
+  cd ~/Downloads
+  wget  https://repo.skype.com/latest/skypeforlinux-64-alpha.deb
+  sudo dpkg -i skypeforlinux-64-alpha.deb
+fi
+
+
 
 read -n1 -ep "create sumlinks? [y,n] - " ans 
 if [ $ans == "y" ]

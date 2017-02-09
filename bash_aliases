@@ -62,15 +62,11 @@ alias diff='colordiff'
 alias bashrc='cat ~/.bashrc'
 alias al='cat ~/.bash_aliases'
 alias ale='vim ~/.bash_aliases'
+alias cshrce='vim ~/ownCloud/git/mylinux/csh.cshrc'
 
 alias bashrce='vim ~/.bashrc'
 
 alias vimrce='vim ~/.vimrc'
-
-alias spwd="PS1='[\u@\h \W]\$ '"
-alias spwd1="PS1='[\W]\$ '"
-alias spwd2="PROMPT_DIRTRIM=1"
-
 #alias ll="ls -gtGhi --time-style long-iso --color=always | sed -re 's/(\-|d)[^ ]* //'"
 
 alias ll="lll"
@@ -305,3 +301,9 @@ ssh_create(){
 cd 
 ssh-keygen -t rsa -C "tsotnep@gmail.com"
 }
+
+alias spwd2="PS1='${lightgreen}[\u@\h \W]\$ ${nc} '"
+alias spwd1="PS1='${lightgreen}[\W]\$ ${nc}'"
+alias spwd="PROMPT_DIRTRIM=1"
+
+
