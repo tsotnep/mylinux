@@ -10,7 +10,7 @@ then
   sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync 
   sudo apt install -y vim dropbox git gitk vim glipper libevent-dev ncurses-dev most 
   sudo apt install -y pinta sublime-text automake shutter sublime-text tree
-  sudo apt install -y owncloud-client
+  sudo apt install -y owncloud-client nmap arp arp-scan geoclue-2.0 redshift-gtk meld
   sudo apt autoremove
 fi
 

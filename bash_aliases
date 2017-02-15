@@ -278,7 +278,7 @@ mylinux_update_installed() {
 clean(){
 
 #vivado
-rm vivado.*
+rm vivado*.*
 rm webtalk.*
 rm *.log
 rm *.jou
