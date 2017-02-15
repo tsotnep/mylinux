@@ -189,8 +189,8 @@ alias git-cmt      'git commit -m'
 alias git-psh      'git push'
 alias git-pl       'git pull'
 
+setenv SWT_GTK3 0
 alias vivado	   'setenv SWT_GTK3 0 && setenv LC_ALL en_US.UTF-8 && /cad/x_16/Vivado/2016.1/bin/vivado'
-
 alias ams_cds      'setenv SWT_GTK3 0 && setenv OA_UNSUPPORTED_PLAT linux_rhel50_gcc44x && /cad/dk/c/v4.11/cds/bin/ams_cds'
 
 # Colors!
@@ -210,7 +210,7 @@ set     end="%{\033[0m%}" # This is needed at the end... :(
 
 #set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} "
 #set prompt="[${green}%n${green}@%m ${white}(tcsh)%~ ]${end} "
-set prompt="${lightgreen}%n${lightgreen}@%m ${white}(tcsh)%~ ${end} "
+set prompt="${lightgreen}%n${lightgreen}@%m ${blue}(tcsh)%~ ${end} "
 
 # Clean up after ourselves...
 unset red green yellow blue magenta cyan yellow white end
