@@ -9,9 +9,20 @@ then
   sudo apt upgrade -y
   sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync 
   sudo apt install -y vim dropbox git gitk vim glipper libevent-dev ncurses-dev most 
-  sudo apt install -y pinta sublime-text automake shutter sublime-text tree
+  sudo apt install -y pinta sublime-text automake shutter sublime-text tree colordiff
   sudo apt install -y owncloud-client nmap arp arp-scan geoclue-2.0 redshift-gtk meld
   sudo apt autoremove
+fi
+
+
+
+read -n1 -ep "install java-oracle-9? [y,n] - " ans 
+if [ $ans == "y" ]
+then
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get install oracle-java9-installer
+  sudo apt-get install oracle-java9-set-default
 fi
 
 

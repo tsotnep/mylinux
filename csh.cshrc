@@ -189,9 +189,12 @@ alias git-cmt      'git commit -m'
 alias git-psh      'git push'
 alias git-pl       'git pull'
 
-setenv SWT_GTK3 0
+
+#that will work, but cad scripts are unsetting those variables
+#echo 'setenv SWT_GTK3 0'
+#echo 'setenv LC_ALL en_US.UTF-8'
+
 alias vivado	   'setenv SWT_GTK3 0 && setenv LC_ALL en_US.UTF-8 && /cad/x_16/Vivado/2016.1/bin/vivado'
-<<<<<<< HEAD
 #alias vivado	   'setenv LC_ALL en_US.UTF-8 && /cad/x_16/Vivado/2016.1/bin/vivado' #does not wrok
 
 alias ams_cds      'setenv SWT_GTK3 0 && setenv OA_UNSUPPORTED_PLAT linux_rhel50_gcc44x && /cad/dk/c/v4.11/cds/bin/ams_cds'
