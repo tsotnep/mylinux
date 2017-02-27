@@ -150,7 +150,7 @@ then
   git config --global push.default matching
 
   echo ~/.ssh/id_rsa.pub
-  read -n1 -ep "do you have this public key in git server? [y,n] - " ans 
+  read -n1 -ep "do you want to print this public key to add in git server? [y,n] - " ans 
   if [ $ans == "y" ]
   then
     git push --set-upstream origin master
