@@ -199,6 +199,9 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
+gitstorepass { git config credential.helper store; git config credential.helper "cache –timeout 30758400"; } #store pass for a year 
+
+
 
 picocom_noc() { sudo chmod a+rw /dev/ttyUSB0;  \picocom -e x -b 57600 /dev/ttyUSB0; }
 picocom_etse() { sudo chmod a+rw /dev/ttyACM0; \picocom -e x -b 115200 /dev/ttyACM0; }
@@ -278,27 +281,30 @@ mylinux_update_installed() {
 clean(){
 
 #vivado
-rm vivado*.*
-rm webtalk.*
-rm *.log
-rm *.jou
-rm output.txt
-rm output_results.txt
-rm lspci
-rm transcript
+rm -v vivado*.*
+rm -v webtalk.*
+rm -v *.log
+rm -v *.jou
+rm -v output.txt
+rm -v output_results.txt
+rm -v lspci
+rm -v transcript
+rm -v .Xil
+rm -v xsim.dir
+rm -v xelab.pb
 
 #design vision
-rm *.syn
-rm *.mr
-rm *.svf
-rm ARCH
-rm ENTI
-rm synopsys_cache*
+rm -v *.syn
+rm -v *.mr
+rm -v *.svf
+rm -v ARCH
+rm -v ENTI
+rm -v synopsys_cache*
 
 #modelsim
-rm vsim.*
-rm *.mti
-rm *.mpf
+rm -v vsim.*
+rm -v *.mti
+rm -v *.mpf
 
 }
 
