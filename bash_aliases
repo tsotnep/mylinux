@@ -199,7 +199,7 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
-gitstorepass { git config credential.helper store; git config credential.helper "cache –timeout 30758400"; } #store pass for a year 
+gitstorepass() { git config credential.helper store; git config credential.helper "cache –timeout 30758400"; } #store pass for a year 
 
 
 
