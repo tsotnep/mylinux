@@ -1,14 +1,15 @@
 echo "Start.."
-source ~/.bash_aliases
 
 read -n1 -ep "install packages from apt? [y,n] - " ans 
 if [ $ans == "y" ]
 then
   echo "using sudo for apt"
+  
   sudo apt update
   sudo apt upgrade -y
+  sudo apt install -y gcc libevent-dev libncurses5-dev make
   sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync 
-  sudo apt install -y vim dropbox git gitk vim glipper libevent-dev ncurses-dev most 
+  sudo apt install -y vim dropbox git gitk vim glipper ncurses-dev most 
   sudo apt install -y pinta sublime-text automake shutter sublime-text tree colordiff
   sudo apt install -y owncloud-client nmap arp arp-scan geoclue-2.0 redshift-gtk meld grc
   sudo apt autoremove
@@ -141,14 +142,15 @@ fi
 
 read -n1 -ep "add ssh key; config git with --global.*; print current public key if needed; [y,n] - " ans 
 if [ $ans == "y" ]
-then  
+then 
+  eval `ssh-agent` 
   ssh-add ~/.ssh/id_rsa
   git config --global user.email "tsotnep@gmail.com"
   git config --global user.name "tsotnep"
   git config --global push.default matching
 
   echo ~/.ssh/id_rsa.pub
-  read -n1 -ep "do you have this public key in git server? [y,n] - " ans 
+  read -n1 -ep "do you want to print this public key to add in git server? [y,n] - " ans 
   if [ $ans == "y" ]
   then
     git push --set-upstream origin master
