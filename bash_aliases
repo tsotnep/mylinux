@@ -181,6 +181,9 @@ alias ssh_fpga16='ssh -Y -C tsotne@193.40.246.130'
 
 
 ######################################### G I T
+alias stash='git stash'
+alias amend='git amend'
+alias gdiff='git diff'
 alias commit='git commit -m'
 alias uncommit='git reset HEAD^' #undo the act of committing and everything you'd staged, but leave the work tree (your files) intact
 alias uncommits='git reset --soft HEAD^' #undo the act of committing, leaving everything else intact
