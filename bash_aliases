@@ -282,7 +282,7 @@ mylinux_update_installed() {
 }
 
 clean(){
-
+mkdir -p ~/.local/share/Trash/files
 #vivado
 mv -vf vivado*.* ~/.local/share/Trash/files
 mv -vf webtalk.* ~/.local/share/Trash/files
@@ -309,6 +309,10 @@ mv -vf vsim.* ~/.local/share/Trash/files
 mv -vf *.mti ~/.local/share/Trash/files
 mv -vf *.mpf ~/.local/share/Trash/files
 
+#ommpvis
+mv -vf innovus.cmd ~/.local/share/Trash/files
+mv -vf genus.cmd ~/.local/share/Trash/files
+mv -vf innovus.logv ~/.local/share/Trash/files
 }
 
 ssh_create(){
