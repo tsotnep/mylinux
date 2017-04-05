@@ -40,6 +40,7 @@ nc='\e[0m'
 
 alias conv_PDFtoGray='convert -density 600 -colorspace gray'
 alias rm=trash
+if (( uname -n == 'strudel')); then alias rm='rm'; fi
 alias cp='cp -i'
 alias mv='mv -i'
 
@@ -64,6 +65,7 @@ alias tmuxe='vim ~/.tmux.conf'
 alias reloadtmux='tmux source ~/.tmux.conf'
 alias reload='exec bash'
 alias cat='pygmentize -g'
+if (( uname -n == 'strudel')); then alias rm='cat'; fi
 alias diff='colordiff'
 alias bashrc='cat ~/.bashrc'
 alias al='cat ~/.bash_aliases'
