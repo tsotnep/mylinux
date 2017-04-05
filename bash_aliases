@@ -46,7 +46,7 @@ alias mv='mv -i'
 #alias cp='\rsync -vraP --info=progress2'
 #alias mv='\rsync -vraP --info=progress2 --remove-sent-files'
 
-alias rsync='\rsync -avzcrlP' 
+alias rsync='\rsync -avzcrlP'
 #alias mv='\rsync -avzcrlP --info=progress2 --partial --progress --append --rsh=ssh -r -h --remove-sent-files' #archive, verbose, compress, checksum, recursive, links,
 #alias cp='\rsync -avzcrlP --info=progress2 --partial --progress --append --rsh=ssh -r -h' #archive, verbose, compress, checksum, recursive, links,
 
@@ -80,22 +80,22 @@ alias li="lli"
 alias lr="llr"
 alias lir="llir"
 alias la="lla"
-lll(){ 
+lll(){
   \ls -lsgtGhi --color=always  | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
 }
 
-lli(){ 
+lli(){
   \ls -lsgtGhi --color=always | awk '{printf "%7s %5s %5s %s %s \n",$1,$6,$7,$8,$9}';
 }
 
-llr(){ 
+llr(){
   \ls -lsgtGhi --color=always | awk '{printf "%10s %5s %5s %s %s \n",$3,$6,$7,$8,$9}';
 }
 
-llir(){ 
+llir(){
   \ls -lsgtGhi --color=always | awk '{printf "%7s %10s %5s %5s %s %s \n",$1,$3,$6,$7,$8,$9}';
 }
-lla(){ 
+lla(){
   \ls -lsgtGhia --color=always | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
 }
 
@@ -158,14 +158,14 @@ alias info_IPMAC='ifconfig'
 alias info_Shell='ps -p $$'
 alias info_Linux='
 echo
-echo Window manager::: && 
-wmctrl -m && 
+echo Window manager::: &&
+wmctrl -m &&
 echo
-echo GUI::: && 
-echo XDG_CURRENT_DESKTOP = $XDG_CURRENT_DESKTOP && 
-echo GDMSESSION = $GDMSESSION && 
+echo GUI::: &&
+echo XDG_CURRENT_DESKTOP = $XDG_CURRENT_DESKTOP &&
+echo GDMSESSION = $GDMSESSION &&
 echo
-echo Distro::: && 
+echo Distro::: &&
 \cat /etc/*-release'
 alias info_PC='inxi -Fx && sudo dmidecode --type 17'
 alias info_Storage='pydf'
@@ -202,7 +202,7 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
-gitstorepass() { git config credential.helper store; git config credential.helper "cache –timeout 30758400"; } #store pass for a year 
+gitstorepass() { git config credential.helper store; git config credential.helper "cache –timeout 30758400"; } #store pass for a year
 
 
 
@@ -255,7 +255,7 @@ mylinux_install(){
 mylinux_install_edit(){
     cd ~/ownCloud/git/mylinux;
     vim install.sh;
-} 
+}
 
 mylinux_push() {
     cd ~/ownCloud/git/mylinux;
@@ -284,40 +284,38 @@ mylinux_update_installed() {
 clean(){
 
 #vivado
-rm -v vivado*.*
-rm -v webtalk.*
-rm -v *.log
-rm -v *.jou
-rm -v output.txt
-rm -v output_results.txt
-rm -v lspci
-rm -v transcript
-rm -v .Xil
-rm -v xsim.dir
-rm -v xelab.pb
+mv -vf vivado*.* ~/.local/share/Trash/files
+mv -vf webtalk.* ~/.local/share/Trash/files
+mv -vf *.log ~/.local/share/Trash/files
+mv -vf *.jou ~/.local/share/Trash/files
+mv -vf output.txt ~/.local/share/Trash/files
+mv -vf output_results.txt ~/.local/share/Trash/files
+mv -vf lspci ~/.local/share/Trash/files
+mv -vf transcript ~/.local/share/Trash/files
+mv -vf .Xil ~/.local/share/Trash/files
+mv -vf xsim.dir ~/.local/share/Trash/files
+mv -vf xelab.pb ~/.local/share/Trash/files
 
 #design vision
-rm -v *.syn
-rm -v *.mr
-rm -v *.svf
-rm -v ARCH
-rm -v ENTI
-rm -v synopsys_cache*
+mv -vf *.syn ~/.local/share/Trash/files
+mv -vf *.mr ~/.local/share/Trash/files
+mv -vf *.svf ~/.local/share/Trash/files
+mv -vf ARCH ~/.local/share/Trash/files
+mv -vf ENTI ~/.local/share/Trash/files
+mv -vf synopsys_cache* ~/.local/share/Trash/files
 
 #modelsim
-rm -v vsim.*
-rm -v *.mti
-rm -v *.mpf
+mv -vf vsim.* ~/.local/share/Trash/files
+mv -vf *.mti ~/.local/share/Trash/files
+mv -vf *.mpf ~/.local/share/Trash/files
 
 }
 
 ssh_create(){
-cd 
+cd
 ssh-keygen -t rsa -C "tsotnep@gmail.com"
 }
 
 alias spwd2="PS1='${lightgreen}[\u@\h \W]\$ ${nc} '"
 alias spwd1="PS1='${lightgreen}[\W]\$ ${nc}'"
 alias spwd="PROMPT_DIRTRIM=1"
-
-
