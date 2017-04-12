@@ -1,0 +1,33 @@
+#REMOTE_PC :193.40.246.127
+
+  #to enable localhost x controlling. PHYSICALLY go and type that
+xhost +localhost
+
+
+
+
+
+
+#LOCAL PC :193.40.246.42
+
+  #start vnc server
+x11vnc -geometry 2560x1440
+
+  #ssh to client
+ssh presentation@193.40.246.127
+
+  #connect to server that was started on local and show it's display
+export DISPLAY=:0.0 xeyes
+cinnamon-screensaver-command -d
+vncviewer 193.40.246.42
+
+
+
+
+
+x11vnc -geometry 2560x1440
+
+ssh presentation@193.40.246.127 "export DISPLAY=:0.0 xeyes && cinnamon-screensaver-command -d && vncviewer 193.40.246.42"
+
+
+http://stackoverflow.com/questions/43325772/send-x11-window-from-local-pc-with-vnc-over-ssh-to-remote-pc-without-touching
