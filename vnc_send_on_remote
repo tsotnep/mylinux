@@ -25,9 +25,11 @@ vncviewer 193.40.246.42
 
 
 
+	%quickly do shit:
 x11vnc -geometry 2560x1440
-
 ssh presentation@193.40.246.127 "export DISPLAY=:0.0 xeyes && cinnamon-screensaver-command -d && vncviewer 193.40.246.42"
 
 
+
+	%link to solution
 http://stackoverflow.com/questions/43325772/send-x11-window-from-local-pc-with-vnc-over-ssh-to-remote-pc-without-touching
