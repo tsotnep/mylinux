@@ -1,15 +1,15 @@
 echo "Start.."
 
-read -n1 -ep "install packages from apt? [y,n] - " ans 
+read -n1 -ep "install packages from apt? [y,n] - " ans
 if [ $ans == "y" ]
 then
   echo "using sudo for apt"
-  
+
   sudo apt update
   sudo apt upgrade -y
   sudo apt install -y gcc libevent-dev libncurses5-dev make
-  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync 
-  sudo apt install -y vim dropbox git gitk vim glipper ncurses-dev most 
+  sudo apt install -y pydf inxi ack-grep pydf picocom python-pygments xclip rsync
+  sudo apt install -y vim dropbox git gitk vim glipper ncurses-dev most
   sudo apt install -y pinta sublime-text automake shutter sublime-text tree colordiff
   sudo apt install -y owncloud-client nmap arp arp-scan geoclue-2.0 redshift-gtk meld grc
   sudo apt autoremove
@@ -17,7 +17,7 @@ fi
 
 
 
-read -n1 -ep "install java-oracle-9? [y,n] - " ans 
+read -n1 -ep "install java-oracle-9? [y,n] - " ans
 if [ $ans == "y" ]
 then
   sudo add-apt-repository ppa:webupd8team/java
@@ -28,7 +28,7 @@ fi
 
 
 
-read -n1 -ep "install chrome? [y,n] - " ans 
+read -n1 -ep "install chrome? [y,n] - " ans
 if [ $ans == "y" ]
 then
   echo "using sudo for apt"
@@ -39,7 +39,7 @@ fi
 
 
 
-read -n1 -ep "install atom? [y,n] - " ans 
+read -n1 -ep "install atom? [y,n] - " ans
 if [ $ans == "y" ]
 then
   echo "using sudo for apt"
@@ -49,7 +49,7 @@ then
 fi
 
 
-read -n1 -ep "install skype-alpha? [y,n] - " ans 
+read -n1 -ep "install skype-alpha? [y,n] - " ans
 if [ $ans == "y" ]
 then
   echo "using sudo for apt"
@@ -60,11 +60,11 @@ fi
 
 
 
-read -n1 -ep "create sumlinks? [y,n] - " ans 
+read -n1 -ep "create sumlinks? [y,n] - " ans
 if [ $ans == "y" ]
 then
   # Force, Symbolic, Backupi
-  cd ~/ownCloud/git/mylinux
+  cd ~/ownCloud/linux_base/mylinux
   ln -fsb `pwd`/bash_aliases $HOME/.bash_aliases
   ln -fsb `pwd`/vimrc $HOME/.vimrc
   ln -fsb `pwd`/tmux.conf $HOME/.tmux.conf
@@ -75,12 +75,12 @@ fi
 
 
 
-read -n1 -ep "install tmux2.2? [y,n] - " ans 
+read -n1 -ep "install tmux2.2? [y,n] - " ans
 if [ $ans == "y" ]
 then
-  mkdir ~/ownCloud/git/tmux
-  mkdir ~/ownCloud/git/tmux/tmux2.2
-  cd ~/ownCloud/git/tmux/tmux2.2
+  mkdir ~/ownCloud/linux_base/tmux
+  mkdir ~/ownCloud/linux_base/tmux/tmux2.2
+  cd ~/ownCloud/linux_base/tmux/tmux2.2
   wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
   tar -zxf tmux-2.2.tar.gz
   cd tmux-2.2
@@ -91,10 +91,10 @@ fi
 
 
 #no need for 2.4, 2.2 is alright.
-# read -n1 -ep "install tmux2.4? [y,n] - " ans 
+# read -n1 -ep "install tmux2.4? [y,n] - " ans
 # if [ $ans == "y" ]
 # then
-#   mkdirc ~/ownCloud/git/tmux/tmux2.4
+#   mkdirc ~/ownCloud/linux_base/tmux/tmux2.4
 #   git clone https://github.com/tmux/tmux.git
 #   cd tmux
 #   sh autogen.sh
@@ -103,15 +103,15 @@ fi
 # fi
 
 
-read -n1 -ep "install tmux plugins manager? [y,n] - " ans 
+read -n1 -ep "install tmux plugins manager? [y,n] - " ans
 if [ $ans == "y" ]
 then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-  
 
 
-read -n1 -ep "install ID reader software? [y,n] - " ans 
+
+read -n1 -ep "install ID reader software? [y,n] - " ans
 if [ $ans == "y" ]
 then
   wget https://installer.id.ee/media/install-scripts/install-open-eid.sh
@@ -122,7 +122,7 @@ fi
 
 
 
-read -n1 -ep "generate ssh key? [y,n] - " ans 
+read -n1 -ep "generate ssh key? [y,n] - " ans
 if [ $ans == "y" ]
 then
   ssh-keygen -t rsa -C "tsotnep@gmail.com"
@@ -130,7 +130,7 @@ fi
 
 
 
-read -n1 -ep "config ssh to reuse tunnels? [y,n] - " ans 
+read -n1 -ep "config ssh to reuse tunnels? [y,n] - " ans
 if [ $ans == "y" ]
 then
   echo host \* >> ~/.ssh/config
@@ -140,17 +140,17 @@ fi
 
 
 
-read -n1 -ep "add ssh key; config git with --global.*; print current public key if needed; [y,n] - " ans 
+read -n1 -ep "add ssh key; config git with --global.*; print current public key if needed; [y,n] - " ans
 if [ $ans == "y" ]
-then 
-  eval `ssh-agent` 
+then
+  eval `ssh-agent`
   ssh-add ~/.ssh/id_rsa
   git config --global user.email "tsotnep@gmail.com"
   git config --global user.name "tsotnep"
   git config --global push.default matching
 
   echo ~/.ssh/id_rsa.pub
-  read -n1 -ep "do you want to print this public key to add in git server? [y,n] - " ans 
+  read -n1 -ep "do you want to print this public key to add in git server? [y,n] - " ans
   if [ $ans == "y" ]
   then
     git push --set-upstream origin master
@@ -163,10 +163,10 @@ fi
 
 
 #if its owncloud, then its always without https
-# read -n1 -ep "config mylinux repo in case it was downloaded with https [y,n] - " ans 
+# read -n1 -ep "config mylinux repo in case it was downloaded with https [y,n] - " ans
 # if [ $ans == "y" ]
 # then
-#   cd ~/ownCloud/git/mylinux  
+#   cd ~/ownCloud/linux_base/mylinux
 #   git remote remove origin
 #   git remote add origin git@github.com:tsotnep/mylinux.git
 # fi

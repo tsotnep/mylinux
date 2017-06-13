@@ -35,13 +35,17 @@ lightpurple='\e[1;35m'
 nc='\e[0m'
 
 
+############## T O D O
+# copy_to_my_pc scp compile_simlib.tar.gz tsotne@193.40.246.42:~/workspace/vivado/
+
+
 ####################################### S H O R T C U T S
 
 
 alias conv_PDFtoGray='convert -density 600 -colorspace gray'
 alias rm=trash
 if (( uname -n == 'strudel')); then alias rm='rm'; fi
-alias cp='cp -i'
+#alias cp='cp -i'
 alias mv='mv -i'
 
 #alias cp='\rsync -vraP --info=progress2'
@@ -70,7 +74,7 @@ alias diff='colordiff'
 alias bashrc='cat ~/.bashrc'
 alias al='cat ~/.bash_aliases'
 alias ale='vim ~/.bash_aliases'
-alias cshrce='vim ~/ownCloud/git/mylinux/csh.cshrc'
+alias cshrce='vim ~/ownCloud/linux_base/mylinux/csh.cshrc'
 
 alias bashrce='vim ~/.bashrc'
 
@@ -138,14 +142,14 @@ alias makerar='rar a'
 
 ################################################################################ MY-PC specific
 alias vpnati='openvpn --config ~/ownCloud/workspace/vpn/openvpn/client.ovpn'
-alias shortcuts='cat ~/ownCloud/git/mylinux/shortcuts'
-alias shortcutse='vim ~/ownCloud/git/mylinux/shortcuts'
-alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ownCloud/git/mylinux/keyboardshortcuts'
+alias shortcuts='cat ~/ownCloud/linux_base/mylinux/shortcuts'
+alias shortcutse='vim ~/ownCloud/linux_base/mylinux/shortcuts'
+alias keyboardshortcutupdate='dconf dump /org/cinnamon/ > ~/ownCloud/linux_base/mylinux/keyboardshortcuts'
 alias sshgenkey='ssh-keygen -t rsa -C "tsotnep@gmail.com"'
 alias sshadd='ssh-add ~/.ssh/id_rsa'
-alias mylinux='cd ~/ownCloud/git/mylinux/'
+alias mylinux='cd ~/ownCloud/linux_base/mylinux/'
 alias ow='cd ~/ownCloud/'
-alias gt='cd ~/ownCloud/git'
+alias gt='cd ~/ownCloud/linux_base'
 alias ws='cd ~/ownCloud/workspace'
 
 
@@ -178,7 +182,7 @@ alias ssh_str='ssh -Y -C tsotne@strudel.pld.ttu.ee'
 alias ssh_pitsa='ssh -Y -C tsotne@pitsa.pld.ttu.ee'
 alias ssh_vineeripirukas='ssh -Y -C tsotne@193.40.246.42'
 alias ssh_fpga16='ssh -Y -C tsotne@193.40.246.130'
-
+alias ssh_present='ssh -Y -C presentation@193.40.246.127'
 
 
 ######################################### G I T
@@ -203,7 +207,7 @@ alias add='git add'
 unadd() { git reset $1; } #remove added file while commiting
 alias branch='git branch -v'
 untrack() { git rm --cached $1; } #untrack already tracked file
-gitstorepass() { git config credential.helper store; git config credential.helper "cache –timeout 30758400"; } #store pass for a year
+gitstorepass() { git config credential.helper cache; git config credential.helper "cache –timeout 30758400"; } #store pass for a year.
 
 
 
@@ -249,17 +253,17 @@ mkdirc() {
 }
 
 mylinux_install(){
-    cd ~/ownCloud/git/mylinux;
+    cd ~/ownCloud/linux_base/mylinux;
     bash install.sh;
 }
 
 mylinux_install_edit(){
-    cd ~/ownCloud/git/mylinux;
+    cd ~/ownCloud/linux_base/mylinux;
     vim install.sh;
 }
 
 mylinux_push() {
-    cd ~/ownCloud/git/mylinux;
+    cd ~/ownCloud/linux_base/mylinux;
     if ! ssh-add -l >/dev/null; then
       sshadd;
     fi
@@ -269,7 +273,7 @@ mylinux_push() {
 }
 
 mylinux_pull() {
-    cd ~/ownCloud/git/mylinux;
+    cd ~/ownCloud/linux_base/mylinux;
     pull;
 }
 
@@ -279,7 +283,7 @@ mylinux_open(){
 
 mylinux_update_installed() {
 #update the packages_full with a list of ubstalled packages in the system
-    comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ownCloud/git/mylinux/packages_full;
+    comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) > ~/ownCloud/linux_base/mylinux/packages_full;
 }
 
 clean(){
