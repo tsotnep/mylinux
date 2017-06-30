@@ -105,6 +105,11 @@ lla(){
   \ls -lsgtGhia --color=always | awk '{printf "%5s %5s %s %s \n",$6,$7,$8,$9}';
 }
 
+webmount(){
+  sudo sshfs root@tsotnep.com:/var/www/ /media/web/www -o follow_symlinks,allow_other,IdentityFile=/home/tsotne/.ssh/id_rsa;
+  sudo sshfs root@tsotnep.com:/etc/nginx/ /media/web/nginx -o follow_symlinks,allow_other,IdentityFile=/home/tsotne/.ssh/id_rsa;
+
+}
 
 alias webrel="sudo nginx -t && sudo systemctl reload nginx"
 alias ..="cd .."
