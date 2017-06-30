@@ -106,7 +106,7 @@ lla(){
 }
 
 
-
+alias webrel="sudo nginx -t && sudo systemctl reload nginx"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
